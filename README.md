@@ -29,7 +29,7 @@ MIT © [JOSHMARTIN GmbH](https://joshmartin.ch)
 
 
 [npm-image]: https://badge.fury.io/js/generator-jm-vuejs.svg
-[npm-url]: https://npmjs.org/package/generator-jm-vuejs
+[npm-url]: https://npmjs.org/package/@jshmrtn/generator-jm-vuejs
 [travis-image]: https://travis-ci.org/jshmrtn/generator-jm-vuejs.svg?branch=master
 [travis-url]: https://travis-ci.org/jshmrtn/generator-jm-vuejs
 [daviddm-image]: https://david-dm.org/jshmrtn/generator-jm-vuejs.svg?theme=shields.io
