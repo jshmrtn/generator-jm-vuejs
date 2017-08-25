@@ -8,8 +8,8 @@
     "node": "~<%= props.nodeVersion %>"
   },
   "bin": {
-    "quin-dev-server": "./bin/dev-server",
-    "quin-setup-client-config": "./bin/setup-client-config"
+    "dev-server": "./bin/dev-server",
+    "setup-client-config": "./bin/setup-client-config"
   },
   "scripts": {
     "postinstall": "./bin/setup-client-config",
