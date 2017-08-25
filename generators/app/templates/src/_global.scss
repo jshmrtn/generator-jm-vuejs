@@ -1,0 +1,16 @@
+@import "~reset-css/reset.css";
+@import "~styles/fonts";
+@import "~styles/variables";
+
+html {
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+body {
+  height: 100%;
+}
+
+[v-cloak] {
+  display: none;
+}

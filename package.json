@@ -1,0 +1,53 @@
+{
+  "name": "generator-jm-vuejs",
+  "version": "0.0.0",
+  "description": "Generator for generating vuejs applications.",
+  "homepage": "https://github.com/jshmrtn/generator-jm-vuejs",
+  "author": {
+    "name": "Jeremy Zahner",
+    "email": "zahner@joshmartin.ch",
+    "url": "https://joshmartin.ch"
+  },
+  "files": [
+    "generators"
+  ],
+  "main": "generators/index.js",
+  "keywords": [
+    "generator",
+    "vuejs",
+    "spa",
+    "yeoman-generator"
+  ],
+  "devDependencies": {
+    "eslint": "^4.1.0",
+    "eslint-config-xo-space": "^0.16.0",
+    "jest": "^19.0.2",
+    "jest-cli": "^20.0.4",
+    "nsp": "^2.6.3",
+    "yeoman-assert": "^3.0.0",
+    "yeoman-test": "^1.6.0"
+  },
+  "dependencies": {
+    "chalk": "^1.1.3",
+    "lodash": "^4.17.4",
+    "yeoman-generator": "^1.0.0",
+    "yosay": "^2.0.0"
+  },
+  "jest": {
+    "testEnvironment": "node"
+  },
+  "scripts": {
+    "prepublish": "nsp check",
+    "pretest": "eslint . --fix",
+    "test": "jest"
+  },
+  "eslintConfig": {
+    "extends": "xo-space",
+    "env": {
+      "jest": true,
+      "node": true
+    }
+  },
+  "repository": "jshmrtn/generator-jm-vuejs",
+  "license": "MIT"
+}

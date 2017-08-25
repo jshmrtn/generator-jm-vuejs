@@ -1,0 +1,19 @@
+{
+    "attr-lowercase": true,
+    "attr-value-double-quotes": true,
+    "src-not-empty": true,
+    "id-class-value": "dash",
+    "style-disabled": false,
+    "inline-style-disabled": true,
+    "inline-script-disabled": true,
+    "space-tab-mixed-disabled": "space",
+    "alt-require": true,
+    "head-script-disabled": true,
+    "tagname-lowercase": true,
+    "attr-no-duplication": true,
+    "tag-pair": true,
+    "tag-self-close": true,
+    "spec-char-escape": true,
+    "id-unique": true,
+    "title-require": true
+}

@@ -1,0 +1,50 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no" />
+
+    <title><%= props.appName %></title>
+
+    <meta name="description" content="<%= props.appDescription %>">
+
+    <meta name="robots" content="noindex, nofollow">
+
+    <!-- Web App Settings for Standards-Compliant Devices -->
+    <%_ if (props.manifest) { _%>
+    <link rel="manifest" href="${require('./manifest.json')}" />
+    <%_ } _%>
+    <meta name="application-name" content="<%= props.appName %>" />
+    <meta name="mobile-web-app-capable" content="yes" />
+
+    <!-- Web App Settings for Apple Devices -->
+    <meta name="apple-mobile-web-app-title" content="<%= props.appName %>" />
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+    <!-- Web App Settings for Windows Devices -->
+    <meta name="msapplication-TileColor" content="#ffffff">
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
+    <meta name="theme-color" content="#ffffff">
+    <%_ if (props.browserconfig) { _%>
+    <meta name="msapplication-config" content="${require('./browserconfig.xml')}" />
+    <%_ } _%>
+
+</head>
+
+<body>
+
+    <app></app>
+
+    <noscript>
+        <h1>No Javascript found!</h1>
+        <p>This application depends on javascript. Please activate it in your browser.</p>
+    </noscript>
+
+</body>
+
+</html>

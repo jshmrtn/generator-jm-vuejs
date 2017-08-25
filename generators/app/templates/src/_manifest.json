@@ -1,0 +1,11 @@
+{
+  "name": "<%= props.appName %>",
+  "short_name": "<%= props.appName %>",
+  "description": "<%= props.appDescription %>",
+  "start_url": "/",
+  "display": "standalone",
+  "orientation": "portrait",
+  "background_color": "#FFFFFF",
+  "theme_color": "#3e4144",
+  "icons": []
+}

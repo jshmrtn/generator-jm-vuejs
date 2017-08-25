@@ -1,0 +1,9 @@
+{
+  "generator-node": {
+    "promptValues": {
+      "authorName": "Jeremy Zahner",
+      "authorEmail": "zahner@joshmartin.ch",
+      "authorUrl": "https://joshmartin.ch"
+    }
+  }
+}
