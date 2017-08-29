@@ -1,23 +1,29 @@
+/* eslint-env node, jest */
 'use strict';
-var path = require('path');
-var assert = require('yeoman-assert');
-var helpers = require('yeoman-test');
+
+const
+  path = require('path'),
+  assert = require('yeoman-assert'),
+  helpers = require('yeoman-test'),
+  dependenciesHelpers = require('./helpers/dependencies-helpers');
+
+// TODO: Check Package.json validity
+// TODO: Eslint on target files
 
 describe('generator-jm-vuejs:app | Basic Usage', () => {
 
   beforeAll(() => {
-    return helpers.run(path.join(__dirname, '../generators/app'))
-      .withPrompts({
-        appName: 'generator-jm-vuejs-app',
-        appDescription: 'generator-jm-vuejs-app test description',
-        nodeVersion: 7,
-        bundlerType: 'webpack',
-        ciType: 'circle',
-        serviceworker: true,
-        browserconfig: true,
-        manifest: true,
-        vuejsComponents: []
-      });
+    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      appName: 'generator-jm-vuejs-app',
+      appDescription: 'generator-jm-vuejs-app test description',
+      nodeVersion: 7,
+      bundlerType: 'webpack',
+      ciType: 'circle',
+      serviceworker: true,
+      browserconfig: true,
+      manifest: true,
+      vuejsComponents: []
+    });
   });
 
   it('creates all "simpleFiles" files', () => {
@@ -54,22 +60,6 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
     ]);
   });
 
-  it('creates all "tplFiles" files', () => {
-    assert.file([
-      '.nvmrc',
-      'src/client.config.dist.json',
-      'src/main.js',
-      'src/index.html',
-      'src/components/app',
-    ]);
-  });
-
-  it('creates all "ciFiles" files', () => {
-    assert.file([
-      'circle.yml',
-    ]);
-  });
-
   it('creates all "serviceworkerFiles" files', () => {
     assert.file([
       'src/sw.js',
@@ -96,6 +86,250 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
     assert.file([
       'src/manifest.json',
     ]);
+  });
+
+});
+
+describe('generator-jm-vuejs:app | CI', () => {
+
+  it('creates all ciFiles.travis files if "travis" is the preferred CI type', () => {
+    helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      ciType: 'travis',
+    });
+    assert.file([
+      '.travis.yml',
+    ]);
+  });
+
+  it('creates all ciFiles.gitlab files if "gitlab" is the preferred CI type', () => {
+    helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      ciType: 'gitlab',
+    });
+    assert.file([
+      '.gitlab-ci.yml',
+    ]);
+  });
+
+  it('creates all ciFiles.circle files if "circle" is the preferred CI type', () => {
+    helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      ciType: 'circle',
+    });
+    assert.file([
+      'circle.yml',
+    ]);
+  });
+
+});
+
+describe('generator-jm-vuejs:app | Routing', () => {
+
+  beforeAll(() => {
+    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      appName: 'generator-jm-vuejs-app',
+      appDescription: 'generator-jm-vuejs-app test description',
+      nodeVersion: 7,
+      bundlerType: 'webpack',
+      ciType: 'circle',
+      serviceworker: true,
+      browserconfig: true,
+      manifest: true,
+      vuejsComponents: [
+        'routing'
+      ]
+    });
+  });
+
+  it('creates all "routingFiles" files', () => {
+    assert.file([
+      'src/core/routing/index.js',
+      'src/core/routing/routes.js',
+      'src/components/index',
+      'src/components/not-found',
+    ]);
+  });
+
+  it('adds vue-router to dependencies', () => {
+
+    dependenciesHelpers.assertDependency('vue-router');
+
+  });
+
+});
+
+describe('generator-jm-vuejs:app | State Management ', () => {
+
+  beforeAll(() => {
+    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      appName: 'generator-jm-vuejs-app',
+      appDescription: 'generator-jm-vuejs-app test description',
+      nodeVersion: 7,
+      bundlerType: 'webpack',
+      ciType: 'circle',
+      serviceworker: true,
+      browserconfig: true,
+      manifest: true,
+      vuejsComponents: [
+        'stateManagement'
+      ]
+    });
+  });
+
+  it('creates all "stateManagementFiles" files', () => {
+    assert.file([
+      'src/core/state/actions.js',
+      'src/core/state/getters.js',
+      'src/core/state/index.js',
+      'src/core/state/mutations.js',
+      'src/core/state/plugins.js',
+      'src/core/state/state.js',
+    ]);
+  });
+
+  it('adds vuex to dependencies', () => {
+
+    dependenciesHelpers.assertDependency('vuex');
+
+  });
+
+  it('adds vuex-persistedstate to dependencies', () => {
+
+    dependenciesHelpers.assertDependency('vuex-persistedstate');
+
+  });
+
+});
+
+describe('generator-jm-vuejs:app | Translations ', () => {
+
+  beforeAll(() => {
+    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      appName: 'generator-jm-vuejs-app',
+      appDescription: 'generator-jm-vuejs-app test description',
+      nodeVersion: 7,
+      bundlerType: 'webpack',
+      ciType: 'circle',
+      serviceworker: true,
+      browserconfig: true,
+      manifest: true,
+      vuejsComponents: [
+        'translations'
+      ]
+    });
+  });
+
+  it('creates all "translationsFiles" files', () => {
+    assert.file([
+      'src/core/translations/en_US.json',
+      'src/core/translations/index.js',
+    ]);
+  });
+
+  it('adds vue-i18n to dependencies', () => {
+
+    dependenciesHelpers.assertDependency('vue-i18n');
+
+  });
+
+});
+
+describe('generator-jm-vuejs:app | HTTP Client ', () => {
+
+  beforeAll(() => {
+    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      appName: 'generator-jm-vuejs-app',
+      appDescription: 'generator-jm-vuejs-app test description',
+      nodeVersion: 7,
+      bundlerType: 'webpack',
+      ciType: 'circle',
+      serviceworker: true,
+      browserconfig: true,
+      manifest: true,
+      vuejsComponents: [
+        'httpClient'
+      ]
+    });
+  });
+
+  it('creates all "httpClientFiles" files', () => {
+    assert.file([
+      'src/core/http/index.js',
+    ]);
+  });
+
+  it('adds vue-resource to dependencies', () => {
+
+    dependenciesHelpers.assertDependency('vue-resource');
+
+  });
+
+});
+
+describe('generator-jm-vuejs:app | GraphQL Client ', () => {
+
+  beforeAll(() => {
+    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      appName: 'generator-jm-vuejs-app',
+      appDescription: 'generator-jm-vuejs-app test description',
+      nodeVersion: 7,
+      bundlerType: 'webpack',
+      ciType: 'circle',
+      serviceworker: true,
+      browserconfig: true,
+      manifest: true,
+      vuejsComponents: [
+        'graphqlClient'
+      ]
+    });
+  });
+
+  it('creates all "graphqlClientFiles" files', () => {
+    assert.file([
+      'src/core/graphql/index.js',
+    ]);
+  });
+
+  it('adds vue-apollo to dependencies', () => {
+
+    dependenciesHelpers.assertDependency('vue-apollo');
+
+  });
+
+  it('adds apollo-client to dependencies', () => {
+
+    dependenciesHelpers.assertDependency('apollo-client');
+
+  });
+
+});
+
+describe('generator-jm-vuejs:app | Dependency Injection ', () => {
+
+  beforeAll(() => {
+    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      appName: 'generator-jm-vuejs-app',
+      appDescription: 'generator-jm-vuejs-app test description',
+      nodeVersion: 7,
+      bundlerType: 'webpack',
+      ciType: 'circle',
+      serviceworker: true,
+      browserconfig: true,
+      manifest: true,
+      vuejsComponents: [
+        'dependencyInjection'
+      ]
+    });
+  });
+
+  it('creates all "dependencyInjectionFiles" files', () => {
+    assert.file([
+      'src/core/dependency-injection/index.js',
+    ]);
+  });
+
+  it('adds vue-inject to dependencies', () => {
+
+    dependenciesHelpers.assertDependency('vue-inject');
+
   });
 
 });

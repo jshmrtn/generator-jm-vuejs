@@ -59,10 +59,12 @@ module.exports = class extends Generator {
      */
 
     const
-      ciSource = ciFiles[this.props.ciType].source,
-      ciTarget = ciFiles[this.props.ciType].target;
+      selectedCiFiles = ciFiles[this.props.ciType];
 
-    this._copyTpl(ciSource, ciTarget);
+    for (source in selectedCiFiles) {
+      target = selectedCiFiles[source];
+      this._copyTpl(source, target);
+    }
 
     /**
      * serviceworker
@@ -175,9 +177,7 @@ module.exports = class extends Generator {
       bower: false,
       npm: false,
       yarn: true,
-      callback: function () {
-        console.log('Everything is ready!');
-      }
+      callback: function () {}
     });
   }
 
@@ -187,23 +187,6 @@ module.exports = class extends Generator {
 
   _copy (source, dest) {
     this.fs.copy(this.templatePath(source), this.destinationPath(dest));
-  }
-
-  /**
-   * Merges something into the package.json file
-   *
-   * @param {Object} packageJson
-   * @param {Object} object
-   */
-  _extendPackageJson (packageJson, object) {
-    console.log(packageJson);
-    const newPackageJson = _.merge(
-      this.fs.readJSON(packageJson),
-      object
-    );
-
-    this.fs.writeJSON(packageJson, newPackageJson);
-
   }
 
 };

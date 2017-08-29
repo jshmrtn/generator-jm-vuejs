@@ -27,9 +27,14 @@ module.exports.tplFiles = {
   'src/components/app/**': 'src/components/app',
 };
 module.exports.ciFiles = {
+  'travis': {
+    'ci/__.travis.yml': '.travis.yml',
+  },
+  'gitlab': {
+    'ci/__.gitlab-ci.yml': '.gitlab-ci.yml',
+  },
   'circle': {
-    'source': 'ci/__circle.yml',
-    'target': 'circle.yml',
+    'ci/__circle.yml': 'circle.yml',
   }
 };
 module.exports.serviceworkerFiles = {

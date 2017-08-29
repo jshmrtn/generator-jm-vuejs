@@ -18,7 +18,9 @@ module.exports = [
     name: 'nodeVersion',
     message: 'Which version of Node would you like to use?',
     choices: [
-      '7'
+      '7',
+      '6',
+      '5'
     ],
     default: 0,
     store: true,
@@ -28,7 +30,8 @@ module.exports = [
     name: 'bundlerType',
     message: 'Which bundler would you like to use?',
     choices: [
-      'webpack'
+      'webpack',
+      'none'
     ],
     default: 0,
     store: true,
@@ -38,6 +41,8 @@ module.exports = [
     name: 'ciType',
     message: 'Which CI would you like to use?',
     choices: [
+      'travis',
+      'gitlab',
       'circle'
     ],
     default: 0,
