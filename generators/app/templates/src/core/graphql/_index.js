@@ -5,7 +5,7 @@ import { graphqlRoot } from 'src/client.config.json';
 
 // Create the apollo client
 export const apolloClient = new ApolloClient({
-  networkInterface: createBatchingNetworkInterface({
+  networkInterface: createNetworkInterface({
     uri: graphqlRoot,
   }),
   connectToDevTools: true,
