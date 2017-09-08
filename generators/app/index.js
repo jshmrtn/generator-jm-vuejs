@@ -1,7 +1,6 @@
 'use strict';
 
 const
-    _ = require('lodash'),
     Generator = require('yeoman-generator'),
     chalk = require('chalk'),
     yosay = require('yosay'),
