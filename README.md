@@ -1,4 +1,6 @@
 # generator-jm-vuejs [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/jshmrtn/generator-jm-vuejs.svg)](https://greenkeeper.io/)
 > Generator for generating VueJS applications.
 
 ## Installation
