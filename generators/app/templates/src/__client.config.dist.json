@@ -3,6 +3,13 @@
   "defaultLanguage": "en_US",
   "languages": [
     "en_US"
-  ]
+  ],
   <%_ } _%>
+  <%_ if (props.vuejsComponents.indexOf("httpClient") >= 0) { _%>
+  "apiRoot": "https://api.example.com",
+  <%_ } _%>
+  <%_ if (props.vuejsComponents.indexOf("graphqlClient") >= 0) { _%>
+  "graphqlRoot": "https://graphql.example.com",
+  <%_ } _%>
+  "foo": "bar"
 }
