@@ -9,19 +9,19 @@ const coreDependencies = {};
 // Routing
 <%_ if (props.vuejsComponents.indexOf("routing") >= 0) { _%>
 import router from 'src/core/routing/index';
-Object.assign(coreDependencies, { router })
+Object.assign(coreDependencies, { router });
 <%_ } _%>
 
 // State Management
 <%_ if (props.vuejsComponents.indexOf("stateManagement") >= 0) { _%>
 import state from 'src/core/state/index';
-Object.assign(coreDependencies, { state })
+Object.assign(coreDependencies, { state });
 <%_ } _%>
 
 // Translations
 <%_ if (props.vuejsComponents.indexOf('translations') >= 0) { _%>
 import i18n from 'src/core/translations/index';
-Object.assign(coreDependencies, { i18n })
+Object.assign(coreDependencies, { i18n });
 <%_ } _%>
 
 // HTTP Client
@@ -29,13 +29,15 @@ Object.assign(coreDependencies, { i18n })
 import 'src/core/http/index';
 <%_ } _%>
 
-// GraphQL Client
-<%_ if (props.vuejsComponents.indexOf("graphqlClient") >= 0) { _%>
-<%_ } _%>
-
 // Dependency Injection
 <%_ if (props.vuejsComponents.indexOf("dependencyInjection") >= 0) { _%>
 import 'src/core/dependency-injection/index';
+<%_ } _%>
+
+// GraphQL Client
+<%_ if (props.vuejsComponents.indexOf("graphqlClient") >= 0) { _%>
+import { apolloProvider } from 'src/core/graphql/index';
+Object.assign(coreDependencies, { apolloProvider });
 <%_ } _%>
 
 // serviceworker
