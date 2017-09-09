@@ -1,7 +1,6 @@
 'use strict';
 
 const
-    _ = require('lodash'),
     Generator = require('yeoman-generator'),
     chalk = require('chalk'),
     yosay = require('yosay'),
@@ -45,13 +44,12 @@ module.exports = class extends Generator {
      * Webpack
      */
 
-    if (this.props.bundlerType === 'webpack') {
+    const
+      selectedBundlerFiles = bundlerFiles[this.props.bundlerType];
 
-      for (source in bundlerFiles['webpack']) {
-        target = bundlerFiles['webpack'][source];
-        this._copyTpl(source, target);
-      }
-
+    for (source in selectedBundlerFiles) {
+      target = selectedBundlerFiles[source];
+      this._copyTpl(source, target);
     }
 
     /**
@@ -60,7 +58,6 @@ module.exports = class extends Generator {
 
     const
       selectedCiFiles = ciFiles[this.props.ciType];
-
     for (source in selectedCiFiles) {
       target = selectedCiFiles[source];
       this._copyTpl(source, target);

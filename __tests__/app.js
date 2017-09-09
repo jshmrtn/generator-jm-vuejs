@@ -12,18 +12,20 @@ const
 
 describe('generator-jm-vuejs:app | Basic Usage', () => {
 
-  beforeAll(() => {
-    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      appName: 'generator-jm-vuejs-app',
-      appDescription: 'generator-jm-vuejs-app test description',
-      nodeVersion: 7,
-      bundlerType: 'webpack',
-      ciType: 'circle',
-      serviceworker: true,
-      browserconfig: true,
-      manifest: true,
-      vuejsComponents: []
-    });
+  beforeEach(() => {
+    return helpers.run(path.join(__dirname, '../generators/app'))
+      .withOptions({ skipInstall: true })
+      .withPrompts({
+        appName: 'generator-jm-vuejs-app',
+        appDescription: 'generator-jm-vuejs-app test description',
+        nodeVersion: 7,
+        bundlerType: 'webpack',
+        ciType: 'circle',
+        serviceworker: true,
+        browserconfig: true,
+        manifest: true,
+        vuejsComponents: []
+      });
   });
 
   it('creates all "simpleFiles" files', () => {
@@ -66,16 +68,6 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
     ]);
   });
 
-  it('creates all "bundlerFiles" files', () => {
-    assert.file([
-      'webpack/base.js',
-      'webpack/dev.js',
-      'webpack/prod.js',
-      'webpack/server.conf.js',
-      'webpack/server.js',
-    ]);
-  });
-
   it('creates all "browserconfigFiles" files', () => {
     assert.file([
       'src/browserconfig.xml',
@@ -90,33 +82,86 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
 
 });
 
+describe('generator-jm-vuejs:app | Bundler', () => {
+
+  describe('Webpack', () => {
+
+    beforeEach(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          bundlerType: 'webpack',
+        });
+    });
+
+    it('creates all budlerFiles.webpack files', () => {
+      assert.file([
+        'webpack/base.js',
+        'webpack/dev.js',
+        'webpack/prod.js',
+        'webpack/server.conf.js',
+        'webpack/server.js',
+      ]);
+    });
+
+  });
+
+});
+
 describe('generator-jm-vuejs:app | CI', () => {
 
-  it('creates all ciFiles.travis files if "travis" is the preferred CI type', () => {
-    helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      ciType: 'travis',
+  describe('Travis CI', () => {
+
+    beforeEach(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          ciType: 'travis',
+        });
     });
-    assert.file([
-      '.travis.yml',
-    ]);
+
+    it('creates all ciFiles.travis files', () => {
+      assert.file([
+        '.travis.yml',
+      ]);
+    });
+
   });
 
-  it('creates all ciFiles.gitlab files if "gitlab" is the preferred CI type', () => {
-    helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      ciType: 'gitlab',
+  describe('Circle CI', () => {
+
+    beforeEach(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          ciType: 'circle',
+        });
     });
-    assert.file([
-      '.gitlab-ci.yml',
-    ]);
+
+    it('creates all ciFiles.circle files', () => {
+      assert.file([
+        'circle.yml',
+      ]);
+    });
+
   });
 
-  it('creates all ciFiles.circle files if "circle" is the preferred CI type', () => {
-    helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      ciType: 'circle',
+  describe('Gitlab CI', () => {
+
+    beforeEach(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          ciType: 'gitlab',
+        });
     });
-    assert.file([
-      'circle.yml',
-    ]);
+
+    it('creates all ciFiles.circle files', () => {
+      assert.file([
+        '.gitlab-ci.yml',
+      ]);
+    });
+
   });
 
 });
@@ -125,14 +170,6 @@ describe('generator-jm-vuejs:app | Routing', () => {
 
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      appName: 'generator-jm-vuejs-app',
-      appDescription: 'generator-jm-vuejs-app test description',
-      nodeVersion: 7,
-      bundlerType: 'webpack',
-      ciType: 'circle',
-      serviceworker: true,
-      browserconfig: true,
-      manifest: true,
       vuejsComponents: [
         'routing'
       ]
@@ -160,14 +197,6 @@ describe('generator-jm-vuejs:app | State Management ', () => {
 
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      appName: 'generator-jm-vuejs-app',
-      appDescription: 'generator-jm-vuejs-app test description',
-      nodeVersion: 7,
-      bundlerType: 'webpack',
-      ciType: 'circle',
-      serviceworker: true,
-      browserconfig: true,
-      manifest: true,
       vuejsComponents: [
         'stateManagement'
       ]
@@ -203,14 +232,6 @@ describe('generator-jm-vuejs:app | Translations ', () => {
 
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      appName: 'generator-jm-vuejs-app',
-      appDescription: 'generator-jm-vuejs-app test description',
-      nodeVersion: 7,
-      bundlerType: 'webpack',
-      ciType: 'circle',
-      serviceworker: true,
-      browserconfig: true,
-      manifest: true,
       vuejsComponents: [
         'translations'
       ]
@@ -236,14 +257,6 @@ describe('generator-jm-vuejs:app | HTTP Client ', () => {
 
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      appName: 'generator-jm-vuejs-app',
-      appDescription: 'generator-jm-vuejs-app test description',
-      nodeVersion: 7,
-      bundlerType: 'webpack',
-      ciType: 'circle',
-      serviceworker: true,
-      browserconfig: true,
-      manifest: true,
       vuejsComponents: [
         'httpClient'
       ]
@@ -268,14 +281,6 @@ describe('generator-jm-vuejs:app | GraphQL Client ', () => {
 
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      appName: 'generator-jm-vuejs-app',
-      appDescription: 'generator-jm-vuejs-app test description',
-      nodeVersion: 7,
-      bundlerType: 'webpack',
-      ciType: 'circle',
-      serviceworker: true,
-      browserconfig: true,
-      manifest: true,
       vuejsComponents: [
         'graphqlClient'
       ]
@@ -306,14 +311,6 @@ describe('generator-jm-vuejs:app | Dependency Injection ', () => {
 
   beforeAll(() => {
     return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
-      appName: 'generator-jm-vuejs-app',
-      appDescription: 'generator-jm-vuejs-app test description',
-      nodeVersion: 7,
-      bundlerType: 'webpack',
-      ciType: 'circle',
-      serviceworker: true,
-      browserconfig: true,
-      manifest: true,
       vuejsComponents: [
         'dependencyInjection'
       ]
