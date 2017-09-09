@@ -94,8 +94,30 @@ describe('generator-jm-vuejs:app | Bundler', () => {
         });
     });
 
-    it('creates all budlerFiles.webpack files', () => {
+    it('creates all bundlerFiles.webpack files', () => {
       assert.file([
+        'webpack/base.js',
+        'webpack/dev.js',
+        'webpack/prod.js',
+        'webpack/server.conf.js',
+        'webpack/server.js',
+      ]);
+    });
+
+  });
+
+  describe('None', () => {
+
+    beforeEach(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          bundlerType: 'none',
+        });
+    });
+
+    it('creates no bundlerFiles.* files', () => {
+      assert.noFile([
         'webpack/base.js',
         'webpack/dev.js',
         'webpack/prod.js',
@@ -163,6 +185,27 @@ describe('generator-jm-vuejs:app | CI', () => {
     });
 
   });
+
+  describe('None', () => {
+
+    beforeEach(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          ciType: 'none',
+        });
+    });
+
+    it('creates no ciFiles.* files', () => {
+      assert.noFile([
+        '.travis.yml',
+        'circle.yml',
+        '.gitlab-ci.yml',
+      ]);
+    });
+
+  });
+
 
 });
 
