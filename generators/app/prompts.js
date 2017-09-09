@@ -43,7 +43,8 @@ module.exports = [
     choices: [
       'travis',
       'gitlab',
-      'circle'
+      'circle',
+      'none'
     ],
     default: 0,
     store: true,
