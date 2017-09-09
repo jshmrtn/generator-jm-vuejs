@@ -41,26 +41,35 @@ module.exports = class extends Generator {
     this._copyTpl('__package.json', 'package.json');
 
     /**
-     * Webpack
+     * Bundler
      */
 
-    const
-      selectedBundlerFiles = bundlerFiles[this.props.bundlerType];
+    if (this.props.bundlerType !== 'none') {
 
-    for (source in selectedBundlerFiles) {
-      target = selectedBundlerFiles[source];
-      this._copyTpl(source, target);
+      const
+        selectedBundlerFiles = bundlerFiles[this.props.bundlerType];
+
+      for (source in selectedBundlerFiles) {
+        target = selectedBundlerFiles[source];
+        this._copyTpl(source, target);
+      }
+
     }
 
     /**
      * CI
      */
 
-    const
-      selectedCiFiles = ciFiles[this.props.ciType];
-    for (source in selectedCiFiles) {
-      target = selectedCiFiles[source];
-      this._copyTpl(source, target);
+    if (this.props.ciType !== 'none') {
+
+      const
+        selectedCiFiles = ciFiles[this.props.ciType];
+
+      for (source in selectedCiFiles) {
+        target = selectedCiFiles[source];
+        this._copyTpl(source, target);
+      }
+
     }
 
     /**

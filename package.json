@@ -38,7 +38,10 @@
     "testEnvironment": "node",
     "testPathIgnorePatterns": [
       "helpers/*"
-    ]
+    ],
+    "collectCoverage": true,
+    "coverageDirectory": "./coverage",
+    "coverageReporters": ["lcov", "html", "text"]
   },
   "scripts": {
     "prepare": "nsp check",
