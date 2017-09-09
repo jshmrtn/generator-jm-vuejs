@@ -1,6 +1,6 @@
 {
   "name": "@jshmrtn/generator-jm-vuejs",
-  "version": "1.0.0-alpha.3",
+  "version": "1.0.0-alpha.4",
   "description": "Generator for generating vuejs applications.",
   "homepage": "https://github.com/jshmrtn/generator-jm-vuejs",
   "author": {
@@ -41,7 +41,11 @@
     ],
     "collectCoverage": true,
     "coverageDirectory": "./coverage",
-    "coverageReporters": ["lcov", "html", "text"]
+    "coverageReporters": [
+      "lcov",
+      "html",
+      "text"
+    ]
   },
   "scripts": {
     "prepare": "nsp check",
