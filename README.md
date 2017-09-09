@@ -1,6 +1,5 @@
-# generator-jm-vuejs [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url]
+# generator-jm-vuejs [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] ![Greenkeeper badge][greenkeeper-image]
 
-[![Greenkeeper badge](https://badges.greenkeeper.io/jshmrtn/generator-jm-vuejs.svg)](https://greenkeeper.io/)
 > Generator for generating VueJS applications.
 
 ## Installation
@@ -146,3 +145,4 @@ MIT © [JOSHMARTIN GmbH](https://joshmartin.ch)
 [travis-url]: https://travis-ci.org/jshmrtn/generator-jm-vuejs
 [daviddm-image]: https://david-dm.org/jshmrtn/generator-jm-vuejs.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/jshmrtn/generator-jm-vuejs
+[greenkeeper-image]: https://badges.greenkeeper.io/jshmrtn/generator-jm-vuejs.svg
