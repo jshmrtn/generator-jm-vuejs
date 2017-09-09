@@ -1,4 +1,4 @@
-# generator-jm-vuejs [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] ![Greenkeeper badge][greenkeeper-image]
+# generator-jm-vuejs [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] ![Greenkeeper badge][greenkeeper-image] [![Code Climate][codeclimate-image]][codeclimate-url] [![Code Climate][codeclimate-coverage-image]][codeclimate-coverage-url]
 
 > Generator for generating VueJS applications.
 
@@ -146,3 +146,7 @@ MIT © [JOSHMARTIN GmbH](https://joshmartin.ch)
 [daviddm-image]: https://david-dm.org/jshmrtn/generator-jm-vuejs.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/jshmrtn/generator-jm-vuejs
 [greenkeeper-image]: https://badges.greenkeeper.io/jshmrtn/generator-jm-vuejs.svg
+[codeclimate-image]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs/badges/gpa.svg
+[codeclimate-url]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs
+[codeclimate-coverage-image]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs/badges/coverage.svg
+[codeclimate-coverage-url]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs/coverage
