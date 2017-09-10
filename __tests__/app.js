@@ -45,7 +45,6 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
       'jsconfig.json',
       'README.md',
       'bin/dev-server',
-      'bin/setup-client-config',
       'src/assets/.gitkeep',
       'src/helpers/.gitkeep',
       'src/mixins/.gitkeep',
@@ -59,6 +58,7 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
   it('creates all "tplFiles" files', () => {
     assert.file([
       '.nvmrc',
+      'bin/setup-client-config',
       'src/client.config.dist.json',
       'src/main.js',
       'src/index.html',

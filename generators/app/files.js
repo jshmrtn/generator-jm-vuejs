@@ -10,7 +10,6 @@ module.exports.simpleFiles = {
   '_.modernizrrc.json': '.modernizrrc.json',
   '_README.md': 'README.md',
   'bin/_dev-server': 'bin/dev-server',
-  'bin/_setup-client-config': 'bin/setup-client-config',
   'src/assets/_.gitkeep': 'src/assets/.gitkeep',
   'src/helpers/_.gitkeep': 'src/helpers/.gitkeep',
   'src/mixins/_.gitkeep': 'src/mixins/.gitkeep',
@@ -22,6 +21,7 @@ module.exports.simpleFiles = {
 module.exports.tplFiles = {
   '__.nvmrc': '.nvmrc',
   'src/__client.config.dist.json': 'src/client.config.dist.json',
+  'bin/__setup-client-config': 'bin/setup-client-config',
   'src/__main.js': 'src/main.js',
   'src/__index.html': 'src/index.html',
   'src/components/app/**': 'src/components/app',
