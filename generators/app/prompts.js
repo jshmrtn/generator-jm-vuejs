@@ -3,7 +3,7 @@ module.exports = [
     type: 'input',
     name: 'appName',
     message: 'Your projects name',
-    default: this.appname,
+    default: this.appname || 'vuejs-app',
     store: true,
   },
   {

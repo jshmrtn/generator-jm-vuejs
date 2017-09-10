@@ -2,13 +2,17 @@
 'use strict';
 
 const
+  fs = require('fs'),
   path = require('path'),
   assert = require('yeoman-assert'),
   helpers = require('yeoman-test'),
-  dependenciesHelpers = require('./helpers/dependencies-helpers');
+  dependenciesHelpers = require('./helpers/dependencies-helpers'),
+  packageJsonValidator=require('package-json-validator').PJV;
 
-// TODO: Check Package.json validity
-// TODO: Eslint on target files
+function readFile(filename, json) {
+  var file = fs.readFileSync(filename, 'utf8');
+  return json ? JSON.parse(file) : file;
+}
 
 describe('generator-jm-vuejs:app | Basic Usage', () => {
 
@@ -62,22 +66,124 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
     ]);
   });
 
-  it('creates all "serviceworkerFiles" files', () => {
-    assert.file([
-      'src/sw.js',
-    ]);
+});
+
+describe('generator-jm-vuejs:app | Service Worker', () => {
+
+  describe('enabled', () => {
+
+    beforeAll(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          serviceworker: true,
+        });
+    });
+
+    it('creates all "serviceworkerFiles" files', () => {
+      assert.file([
+        'src/sw.js',
+      ]);
+    });
+
   });
 
-  it('creates all "browserconfigFiles" files', () => {
-    assert.file([
-      'src/browserconfig.xml',
-    ]);
+  describe('disabled', () => {
+
+    beforeAll(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          serviceworker: false,
+        });
+    });
+
+    it('creates no "serviceworkerFiles" files', () => {
+      assert.noFile([
+        'src/sw.js',
+      ]);
+    });
+
   });
 
-  it('creates all "manifestFiles" files', () => {
-    assert.file([
-      'src/manifest.json',
-    ]);
+});
+
+describe('generator-jm-vuejs:app | Browserconfig', () => {
+
+  describe('enabled', () => {
+
+    beforeAll(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          browserconfig: true,
+        });
+    });
+
+    it('creates all "browserconfigFiles" files', () => {
+      assert.file([
+        'src/browserconfig.xml',
+      ]);
+    });
+
+  });
+
+  describe('disabled', () => {
+
+    beforeAll(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          browserconfig: false,
+        });
+    });
+
+    it('creates no "browserconfigFiles" files', () => {
+      assert.noFile([
+        'src/browserconfig.xml',
+      ]);
+    });
+
+  });
+
+});
+
+describe('generator-jm-vuejs:app | Manifest', () => {
+
+  describe('enabled', () => {
+
+    beforeAll(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          manifest: true,
+        });
+    });
+
+    it('creates all "manifestFiles" files', () => {
+      assert.file([
+        'src/manifest.json',
+      ]);
+    });
+
+  });
+
+  describe('disabled', () => {
+
+    beforeAll(() => {
+      return helpers.run(path.join(__dirname, '../generators/app'))
+        .withOptions({ skipInstall: true })
+        .withPrompts({
+          manifest: false,
+        });
+    });
+
+    it('creates no "manifestFiles" files', () => {
+      assert.noFile([
+        'src/manifest.json',
+      ]);
+    });
+
   });
 
 });
@@ -369,6 +475,45 @@ describe('generator-jm-vuejs:app | Dependency Injection ', () => {
   it('adds vue-inject to dependencies', () => {
 
     dependenciesHelpers.assertDependency('vue-inject');
+
+  });
+
+});
+
+describe('generator-jm-vuejs:app | NPM Validity ', () => {
+
+  beforeAll(() => {
+    return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
+      appName: 'generator-jm-vuejs-app',
+      appDescription: 'generator-jm-vuejs-app test description',
+      nodeVersion: 7,
+      bundlerType: 'webpack',
+      ciType: 'circle',
+      serviceworker: true,
+      browserconfig: true,
+      manifest: true,
+      vuejsComponents: [
+        'routing',
+        'stateManagement',
+        'translations',
+        'httpClient',
+        'graphqlClient',
+        'dependencyInjection',
+      ]
+    });
+  });
+
+  it('has a valid package.json', () => {
+
+    const
+      packageJson = readFile('package.json');
+      test = packageJsonValidator.validate(packageJson, 'npm', {
+        warnings: true,
+        recommendations: true,
+      });
+
+    expect(test.errors, 'foo').toBeUndefined();
+    expect(test.valid).toBeTruthy();
 
   });
 
