@@ -7,6 +7,18 @@ const fs = require('fs'),
     destPath = path.join(__dirname, '../src/client.config.json'),
     distPath = path.join(__dirname, '../src/client.config.dist.json');
 
+function checkForString(value) {
+    if(typeof value !== 'string'){
+        console.error(`${value.toString()} is defined but not a string.`);
+    }
+}
+
+function checkForArray(value) {
+    if(!Array.isArray(value)){
+        console.error(`${value.toString()} is defined but not an Array.`);
+    }
+}
+
 fs.exists(destPath, (exists) => {
 
     const distJSON = JSON.parse(fs.readFileSync(distPath));
@@ -16,12 +28,41 @@ fs.exists(destPath, (exists) => {
     console.log('Updating Configuration:');
 
     if(exists) {
-
         const destJSON = JSON.parse(fs.readFileSync(destPath));
-
         targetJSON = _.merge(distJSON, destJSON);
-
     }
+
+    <%_ if (props.vuejsComponents.indexOf('translations') >= 0) { _%>
+    if(process.env.DEFAULT_LANGUAGE) {
+        checkForString(process.env.DEFAULT_LANGUAGE);
+        targetJSON.defaultLanguage = process.env.DEFAULT_LANGUAGE;
+    }
+    if(process.env.LANGUAGES) {
+        checkForArray(process.env.LANGUAGES);
+        targetJSON.languages = process.env.LANGUAGES;
+    }
+    <%_ } _%>
+
+    <%_ if (props.vuejsComponents.indexOf("httpClient") >= 0) { _%>
+    if(process.env.API_ROOT) {
+        checkForString(process.env.API_ROOT);
+        targetJSON.apiRoot = process.env.API_ROOT;
+    }
+    <%_ } _%>
+
+    <%_ if (props.vuejsComponents.indexOf("graphqlClient") >= 0) { _%>
+    if(process.env.GRAPHQL_ROOT) {
+        checkForString(process.env.GRAPHQL_ROOT);
+        targetJSON.graphqlRoot = process.env.GRAPHQL_ROOT;
+    }
+    <%_ } _%>
+
+    <%_ if (props.errorTracking) { _%>
+    if(process.env.SENTRY_DSN) {
+        checkForString(process.env.SENTRY_DSN);
+        targetJSON.sentryDsn = process.env.SENTRY_DSN;
+    }
+    <%_ } _%>
 
     console.log(targetJSON);
 

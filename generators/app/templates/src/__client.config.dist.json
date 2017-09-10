@@ -11,5 +11,8 @@
   <%_ if (props.vuejsComponents.indexOf("graphqlClient") >= 0) { _%>
   "graphqlRoot": "https://graphql.example.com",
   <%_ } _%>
+  <%_ if (props.errorTracking) { _%>
+  "sentryDsn": "",
+  <%_ } _%>
   "foo": "bar"
 }
