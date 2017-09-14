@@ -1,5 +1,3 @@
-import withRender from './app.html?style=./app.scss';
-
-export default withRender({
+export default {
     name: 'app',
-});
+};

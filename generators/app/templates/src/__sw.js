@@ -14,7 +14,7 @@ const CACHE_NAME = (new Date()).toISOString();
 
 let assetsToCache = [
     ...assets,
-    //'./',
+    './',
 ];
 
 assetsToCache = assetsToCache.map((path) => {
@@ -60,7 +60,7 @@ self.addEventListener('activate', (event) => {
             .then((cacheNames) => {
                 return Promise.all(
                     cacheNames.map((cacheName) => {
-                        // Delete the caches that are not the current one.
+                    // Delete the caches that are not the current one.
                         if (cacheName.indexOf(CACHE_NAME) === 0) {
                             return null;
                         }
@@ -118,7 +118,9 @@ self.addEventListener('fetch', (event) => {
             }
 
             // Load and cache known assets.
-            return fetch(request, { credentials: 'include' })
+            return fetch(request, {
+                credentials: 'include',
+            })
                 .then((responseNetwork) => {
                     if (!responseNetwork || !responseNetwork.ok) {
                         if (DEBUG) {

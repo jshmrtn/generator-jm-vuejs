@@ -9,19 +9,25 @@ const coreDependencies = {};
 // Routing
 <%_ if (props.vuejsComponents.indexOf("routing") >= 0) { _%>
 import router from 'src/core/routing/index';
-Object.assign(coreDependencies, { router });
+Object.assign(coreDependencies, {
+    router,
+});
 <%_ } _%>
 
 // State Management
 <%_ if (props.vuejsComponents.indexOf("stateManagement") >= 0) { _%>
 import state from 'src/core/state/index';
-Object.assign(coreDependencies, { state });
+Object.assign(coreDependencies, {
+    state,
+});
 <%_ } _%>
 
 // Translations
 <%_ if (props.vuejsComponents.indexOf('translations') >= 0) { _%>
 import i18n from 'src/core/translations/index';
-Object.assign(coreDependencies, { i18n });
+Object.assign(coreDependencies, {
+    i18n,
+});
 <%_ } _%>
 
 // HTTP Client
@@ -36,17 +42,21 @@ import 'src/core/dependency-injection/index';
 
 // GraphQL Client
 <%_ if (props.vuejsComponents.indexOf("graphqlClient") >= 0) { _%>
-import { apolloProvider } from 'src/core/graphql/index';
-Object.assign(coreDependencies, { apolloProvider });
+import {
+    apolloProvider,
+} from 'src/core/graphql/index';
+Object.assign(coreDependencies, {
+    apolloProvider,
+});
 <%_ } _%>
 
 // serviceworker
 <%_ if (props.serviceworker) { _%>
 import runtime from 'serviceworker-webpack-plugin/lib/runtime';
-if ('serviceWorker' in navigator
-  && (window.location.protocol === 'https:' || window.location.hostname === 'localhost')
-  && process.env.NODE_ENV !== 'development') {
-  runtime.register();
+if ('serviceWorker' in navigator &&
+    (window.location.protocol === 'https:' || window.location.hostname === 'localhost') &&
+    process.env.NODE_ENV !== 'development') {
+    runtime.register();
 }
 <%_ } _%>
 
@@ -56,25 +66,19 @@ import 'src/core/error-tracking/index';
 <%_ } _%>
 
 // Import Root Component
-import appComponent from 'components/app/app';
+import appComponent from 'components/app/app.vue';
 
 // Global styles
 import './global.scss';
 
-runApplication();
+// Set Configuration
+Vue.config.productionTip = false;
 
-function runApplication() {
-
-    // Initialize Vue Application
-    new Vue({
-        ...coreDependencies,
-        el: 'app',
-        components: {
-            'app': appComponent,
-        },
-    });
-
-    // Set Configuration
-    Vue.config.productionTip = false;
-
-}
+// Initialize Vue Application
+new Vue({
+    ...coreDependencies,
+    el: 'app',
+    components: {
+        'app': appComponent,
+    },
+});

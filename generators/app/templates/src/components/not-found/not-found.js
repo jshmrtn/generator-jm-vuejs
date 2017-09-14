@@ -1,5 +1,8 @@
-import withRender from './not-found.html?style=./not-found.scss';
-
-export default withRender({
+export default {
     name: 'not-found',
-});
+    data() {
+        return {
+            'message': 'Bollocks! The component could not be found...',
+        };
+    },
+};
