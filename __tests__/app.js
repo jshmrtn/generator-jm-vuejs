@@ -522,7 +522,7 @@ describe('generator-jm-vuejs:app | NPM Validity ', () => {
             recommendations: true,
         });
 
-        expect(test.errors, 'foo').toBeUndefined();
+        expect(test.errors).toBeUndefined();
         expect(test.valid).toBeTruthy();
 
     });
