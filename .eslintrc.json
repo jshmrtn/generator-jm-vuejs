@@ -12,6 +12,26 @@
         "sourceType": "module"
     },
     "rules": {
+        "indent": [
+          "error",
+          4
+        ],
+        "linebreak-style": [
+          "error",
+          "unix"
+        ],
+        "quotes": [
+          "error",
+          "single"
+        ],
+        "semi": [
+          "error",
+          "always"
+        ],
+        "comma-dangle": [
+          "error",
+          "always-multiline"
+        ],
         "no-const-assign": "warn",
         "no-this-before-super": "warn",
         "no-undef": "warn",

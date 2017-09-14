@@ -3,6 +3,6 @@ import {
 } from 'core/state/state';
 
 export const
-  RESET_LOCALSTORAGE = () => {
-      localStorage.removeItem(STORAGE_KEY);
-  };
+    RESET_LOCALSTORAGE = () => {
+        localStorage.removeItem(STORAGE_KEY);
+    };

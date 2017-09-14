@@ -10,9 +10,9 @@
 
     <title><%= props.appName %></title>
 
-    <meta name="description" content="<%= props.appDescription %>">
+    <meta name="description" content="<%= props.appDescription %>" />
 
-    <meta name="robots" content="noindex, nofollow">
+    <meta name="robots" content="noindex, nofollow" />
 
     <!-- Web App Settings for Standards-Compliant Devices -->
     <%_ if (props.manifest) { _%>
@@ -27,9 +27,9 @@
     <meta name="apple-mobile-web-app-status-bar-style" content="black" />
 
     <!-- Web App Settings for Windows Devices -->
-    <meta name="msapplication-TileColor" content="#ffffff">
-    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png">
-    <meta name="theme-color" content="#ffffff">
+    <meta name="msapplication-TileColor" content="#ffffff" />
+    <meta name="msapplication-TileImage" content="/ms-icon-144x144.png" />
+    <meta name="theme-color" content="#ffffff" />
     <%_ if (props.browserconfig) { _%>
     <meta name="msapplication-config" content="${require('./browserconfig.xml')}" />
     <%_ } _%>

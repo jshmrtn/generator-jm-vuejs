@@ -1,5 +1,8 @@
-import withRender from './index.html?style=./index.scss';
-
-export default withRender({
+export default {
     name: 'index',
-});
+    data() {
+        return {
+            'message': 'Hello World!',
+        };
+    },
+};

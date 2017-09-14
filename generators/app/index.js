@@ -20,179 +20,179 @@ const
     dependencyInjectionFiles = require('./files').dependencyInjectionFiles;
 
 module.exports = class extends Generator {
-  prompting() {
+    prompting() {
 
-    this.log(yosay(
-      'Welcome to the wicked ' + chalk.red('generator-jm-vuejs') + ' generator!'
-    ));
+        this.log(yosay(
+            'Welcome to the wicked ' + chalk.red('generator-jm-vuejs') + ' generator!'
+        ));
 
-    return this.prompt(prompts).then((props) => {
+        return this.prompt(prompts).then((props) => {
 
-      this.props = props;
+            this.props = props;
 
-    });
-
-  }
-
-  writing() {
-
-    let source, target;
-
-    this._copyTpl('__package.json', 'package.json');
-
-    /**
-     * Bundler
-     */
-
-    if (this.props.bundlerType !== 'none') {
-
-      const
-        selectedBundlerFiles = bundlerFiles[this.props.bundlerType];
-
-      for (source in selectedBundlerFiles) {
-        target = selectedBundlerFiles[source];
-        this._copyTpl(source, target);
-      }
+        });
 
     }
 
-    /**
-     * CI
-     */
+    writing() {
 
-    if (this.props.ciType !== 'none') {
+        let source, target;
 
-      const
-        selectedCiFiles = ciFiles[this.props.ciType];
+        this._copyTpl('__package.json', 'package.json');
 
-      for (source in selectedCiFiles) {
-        target = selectedCiFiles[source];
-        this._copyTpl(source, target);
-      }
+        /**
+         * Bundler
+         */
+
+        if (this.props.bundlerType !== 'none') {
+
+            const
+                selectedBundlerFiles = bundlerFiles[this.props.bundlerType];
+
+            for (source in selectedBundlerFiles) {
+                target = selectedBundlerFiles[source];
+                this._copyTpl(source, target);
+            }
+
+        }
+
+        /**
+         * CI
+         */
+
+        if (this.props.ciType !== 'none') {
+
+            const
+                selectedCiFiles = ciFiles[this.props.ciType];
+
+            for (source in selectedCiFiles) {
+                target = selectedCiFiles[source];
+                this._copyTpl(source, target);
+            }
+
+        }
+
+        /**
+         * serviceworker
+         */
+
+        if (this.props.serviceworker) {
+
+            for (source in serviceworkerFiles) {
+                target = serviceworkerFiles[source];
+                this._copyTpl(source, target);
+            }
+
+        }
+
+        /**
+         * browserconfig
+         */
+
+        if (this.props.browserconfig) {
+
+            for (source in browserconfigFiles) {
+                target = browserconfigFiles[source];
+                this._copyTpl(source, target);
+            }
+
+        }
+
+        /**
+         * manifest
+         */
+
+        if (this.props.manifest) {
+
+            for (source in manifestFiles) {
+                target = manifestFiles[source];
+                this._copyTpl(source, target);
+            }
+
+        }
+
+        /**
+         * VueJS
+         */
+
+        // routing
+        if (this.props.vuejsComponents.indexOf('routing') >= 0) {
+            for (source in routingFiles) {
+                target = routingFiles[source];
+                this._copyTpl(source, target);
+            }
+        }
+        // stateManagement
+        if (this.props.vuejsComponents.indexOf('stateManagement') >= 0) {
+            for (source in stateManagementFiles) {
+                target = stateManagementFiles[source];
+                this._copyTpl(source, target);
+            }
+        }
+        // translations
+        if (this.props.vuejsComponents.indexOf('translations') >= 0) {
+            for (source in translationsFiles) {
+                target = translationsFiles[source];
+                this._copyTpl(source, target);
+            }
+        }
+        // httpClient
+        if (this.props.vuejsComponents.indexOf('httpClient') >= 0) {
+            for (source in httpClientFiles) {
+                target = httpClientFiles[source];
+                this._copyTpl(source, target);
+            }
+        }
+        // graphqlClient
+        if (this.props.vuejsComponents.indexOf('graphqlClient') >= 0) {
+            for (source in graphqlClientFiles) {
+                target = graphqlClientFiles[source];
+                this._copyTpl(source, target);
+            }
+        }
+        // dependencyInjection
+        if (this.props.vuejsComponents.indexOf('dependencyInjection') >= 0) {
+            for (source in dependencyInjectionFiles) {
+                target = dependencyInjectionFiles[source];
+                this._copyTpl(source, target);
+            }
+        }
+
+        /**
+         * General
+         */
+
+        for (source in simpleFiles) {
+            target = simpleFiles[source];
+            this._copy(source, target);
+        }
+
+        for (source in tplFiles) {
+            target = tplFiles[source];
+            this._copyTpl(source, target);
+        }
 
     }
 
-    /**
-     * serviceworker
-     */
-
-    if (this.props.serviceworker) {
-
-      for (source in serviceworkerFiles) {
-        target = serviceworkerFiles[source];
-        this._copyTpl(source, target);
-      }
-
-    }
-
-    /**
-     * browserconfig
-     */
-
-    if (this.props.browserconfig) {
-
-      for (source in browserconfigFiles) {
-        target = browserconfigFiles[source];
-        this._copyTpl(source, target);
-      }
-
-    }
-
-    /**
-     * manifest
-     */
-
-    if (this.props.manifest) {
-
-      for (source in manifestFiles) {
-        target = manifestFiles[source];
-        this._copyTpl(source, target);
-      }
-
-    }
-
-    /**
-     * VueJS
-     */
-
-    // routing
-    if (this.props.vuejsComponents.indexOf("routing") >= 0) {
-      for (source in routingFiles) {
-        target = routingFiles[source];
-        this._copyTpl(source, target);
-      }
-    }
-    // stateManagement
-    if (this.props.vuejsComponents.indexOf("stateManagement") >= 0) {
-      for (source in stateManagementFiles) {
-        target = stateManagementFiles[source];
-        this._copyTpl(source, target);
-      }
-    }
-    // translations
-    if (this.props.vuejsComponents.indexOf("translations") >= 0) {
-      for (source in translationsFiles) {
-        target = translationsFiles[source];
-        this._copyTpl(source, target);
-      }
-    }
-    // httpClient
-    if (this.props.vuejsComponents.indexOf("httpClient") >= 0) {
-      for (source in httpClientFiles) {
-        target = httpClientFiles[source];
-        this._copyTpl(source, target);
-      }
-    }
-    // graphqlClient
-    if (this.props.vuejsComponents.indexOf("graphqlClient") >= 0) {
-      for (source in graphqlClientFiles) {
-        target = graphqlClientFiles[source];
-        this._copyTpl(source, target);
-      }
-    }
-    // dependencyInjection
-    if (this.props.vuejsComponents.indexOf("dependencyInjection") >= 0) {
-      for (source in dependencyInjectionFiles) {
-        target = dependencyInjectionFiles[source];
-        this._copyTpl(source, target);
-      }
-    }
-
-    /**
-     * General
-     */
-
-    for (source in simpleFiles) {
-      target = simpleFiles[source];
-      this._copy(source, target);
-    }
-
-    for (source in tplFiles) {
-      target = tplFiles[source];
-      this._copyTpl(source, target);
-    }
-
-  }
-
-  install() {
+    install() {
 
     // make bin executable
     // setup client config
 
-    this.installDependencies({
-      bower: false,
-      npm: false,
-      yarn: true,
-      callback: function () {}
-    });
-  }
+        this.installDependencies({
+            bower: false,
+            npm: false,
+            yarn: true,
+            callback: function () {},
+        });
+    }
 
-  _copyTpl (source, dest) {
-    this.fs.copyTpl(this.templatePath(source), this.destinationPath(dest), this);
-  }
+    _copyTpl (source, dest) {
+        this.fs.copyTpl(this.templatePath(source), this.destinationPath(dest), this);
+    }
 
-  _copy (source, dest) {
-    this.fs.copy(this.templatePath(source), this.destinationPath(dest));
-  }
+    _copy (source, dest) {
+        this.fs.copy(this.templatePath(source), this.destinationPath(dest));
+    }
 
 };
