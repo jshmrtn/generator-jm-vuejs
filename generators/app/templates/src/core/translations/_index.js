@@ -1,6 +1,9 @@
 import Vue from 'vue';
 import VueI18n from 'vue-i18n';
-import { languages, defaultLanguage } from 'src/client.config.json';
+import {
+    languages,
+    defaultLanguage,
+} from 'src/client.config.json';
 
 Vue.use(VueI18n);
 

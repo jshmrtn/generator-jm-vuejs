@@ -1,5 +1,13 @@
-import withRender from './not-found.html?style=./not-found.scss';
+import selectors from './not-found.scss';
+import template from './not-found.html';
 
-export default withRender({
+export default {
     name: 'not-found',
-});
+    template,
+    data() {
+        return {
+            'message': 'Bollocks! The component could not be found...',
+            selectors,
+        };
+    },
+};

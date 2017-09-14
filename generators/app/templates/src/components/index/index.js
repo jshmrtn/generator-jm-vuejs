@@ -1,5 +1,13 @@
-import withRender from './index.html?style=./index.scss';
+import selectors from './index.scss';
+import template from './index.html';
 
-export default withRender({
+export default {
     name: 'index',
-});
+    template,
+    data() {
+        return {
+            'message': 'Hello World!',
+            selectors,
+        };
+    },
+};

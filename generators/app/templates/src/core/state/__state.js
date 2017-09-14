@@ -1,6 +1,6 @@
 export const
-STORAGE_KEY = 'graphql-poc',
-INITIAL_STATE = {};
+    STORAGE_KEY = '<%= props.appName %>-storage',
+    INITIAL_STATE = {};
 
 // Local storage sync state
 export const state = INITIAL_STATE;

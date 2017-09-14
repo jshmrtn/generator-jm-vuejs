@@ -1,6 +1,8 @@
 import Vue from 'vue';
 import Vuex from 'vuex';
-import { state } from 'core/state/state';
+import {
+    state,
+} from 'core/state/state';
 import * as getters from 'core/state/getters';
 import * as actions from 'core/state/actions';
 import * as mutations from 'core/state/mutations';
