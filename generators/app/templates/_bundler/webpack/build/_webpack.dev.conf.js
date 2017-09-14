@@ -5,12 +5,12 @@
 
 const
     path = require('path'),
-    utils = require('./utils'),
     webpack = require('webpack'),
     config = require('../config'),
     merge = require('webpack-merge'),
     baseWebpackConfig = require('./webpack.base.conf'),
     HtmlWebpackPlugin = require('html-webpack-plugin'),
+    ExtractTextPlugin = require('extract-text-webpack-plugin'),
     FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'),
     rootPath = path.join(__dirname, '../'),
     srcPath = path.join(rootPath, 'src');
@@ -21,13 +21,13 @@ Object.keys(baseWebpackConfig.entry).forEach(function (name) {
 });
 
 module.exports = merge(baseWebpackConfig, {
-    module: {
-        rules: utils.styleLoaders({
-            sourceMap: config.dev.cssSourceMap,
-        }),
-    },
     // cheap-module-eval-source-map is faster for development
     devtool: '#cheap-module-eval-source-map',
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.esm.js',
+        },
+    },
     plugins: [
         new webpack.DefinePlugin({
             'process.env': config.dev.env,
@@ -42,5 +42,10 @@ module.exports = merge(baseWebpackConfig, {
             inject: true,
         }),
         new FriendlyErrorsPlugin(),
+        new ExtractTextPlugin({
+            filename: '[hash].css',
+            allChunks: true,
+            disable: true,
+        }),
     ],
 });

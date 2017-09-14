@@ -22,17 +22,16 @@ const env = process.env.NODE_ENV === 'testing' ?
     config.build.env;
 
 const webpackConfig = merge(baseWebpackConfig, {
-    module: {
-        rules: utils.styleLoaders({
-            sourceMap: config.build.productionSourceMap,
-            extract: true,
-        }),
-    },
     devtool: config.build.productionSourceMap ? '#source-map' : false,
     output: {
         path: config.build.assetsRoot,
         filename: utils.assetsPath('js/[name].[chunkhash].js'),
         chunkFilename: utils.assetsPath('js/[id].[chunkhash].js'),
+    },
+    resolve: {
+        alias: {
+            'vue$': 'vue/dist/vue.min.js',
+        },
     },
     plugins: [
         // http://vuejs.github.io/vue-loader/en/workflow/production.html
@@ -103,6 +102,11 @@ const webpackConfig = merge(baseWebpackConfig, {
             to: config.build.assetsSubDirectory,
             ignore: ['.*'],
         }]),
+        new ExtractTextPlugin({
+            filename: '[hash].css',
+            allChunks: true,
+            disable: false,
+        }),
     ],
 });
 
