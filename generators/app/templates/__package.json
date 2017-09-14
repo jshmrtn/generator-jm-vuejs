@@ -5,8 +5,8 @@
   "license": "UNLICENSED",
   "private": true,
   "engines": {
-    "node": "~ <%= props.nodeVersion %>",
-    "npm": "~ <%= props.npmVersion %>"
+    "node": "~<%= props.nodeVersion %>",
+    "npm": "~<%= props.npmVersion %>"
   },
   "bin": {
     "setup-client-config": "./bin/setup-client-config"
