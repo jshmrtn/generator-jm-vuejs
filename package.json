@@ -1,6 +1,6 @@
 {
   "name": "@jshmrtn/generator-jm-vuejs",
-  "version": "1.0.0-alpha.7",
+  "version": "1.0.0-alpha.8",
   "description": "Generator for generating vuejs applications.",
   "homepage": "https://github.com/jshmrtn/generator-jm-vuejs",
   "author": {
