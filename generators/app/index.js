@@ -183,7 +183,6 @@ module.exports = class extends Generator {
             bower: false,
             npm: false,
             yarn: true,
-            callback: function () {},
         });
     }
 
