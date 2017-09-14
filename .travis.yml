@@ -14,9 +14,12 @@ matrix:
   - NPM_VERSION=5
 before_install:
   - npm i -g npm@$NPM_VERSION
+  - npm install -g greenkeeper-lockfile@1
 before_script:
+  - greenkeeper-lockfile-update
   - curl -L https://codeclimate.com/downloads/test-reporter/test-reporter-latest-linux-amd64 > ./cc-test-reporter
   - chmod +x ./cc-test-reporter
   - ./cc-test-reporter before-build
 after_script:
+  - greenkeeper-lockfile-upload
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
