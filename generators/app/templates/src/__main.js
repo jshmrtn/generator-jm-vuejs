@@ -8,7 +8,7 @@ const coreDependencies = {};
 
 // Routing
 <%_ if (props.vuejsComponents.indexOf("routing") >= 0) { _%>
-import router from 'src/core/routing/index';
+import router from './core/routing/index';
 Object.assign(coreDependencies, {
     router,
 });
@@ -16,7 +16,7 @@ Object.assign(coreDependencies, {
 
 // State Management
 <%_ if (props.vuejsComponents.indexOf("stateManagement") >= 0) { _%>
-import state from 'src/core/state/index';
+import state from './core/state/index';
 Object.assign(coreDependencies, {
     state,
 });
@@ -24,7 +24,7 @@ Object.assign(coreDependencies, {
 
 // Translations
 <%_ if (props.vuejsComponents.indexOf('translations') >= 0) { _%>
-import i18n from 'src/core/translations/index';
+import i18n from './core/translations/index';
 Object.assign(coreDependencies, {
     i18n,
 });
@@ -32,19 +32,19 @@ Object.assign(coreDependencies, {
 
 // HTTP Client
 <%_ if (props.vuejsComponents.indexOf("httpClient") >= 0) { _%>
-import 'src/core/http/index';
+import './core/http/index';
 <%_ } _%>
 
 // Dependency Injection
 <%_ if (props.vuejsComponents.indexOf("dependencyInjection") >= 0) { _%>
-import 'src/core/dependency-injection/index';
+import './core/dependency-injection/index';
 <%_ } _%>
 
 // GraphQL Client
 <%_ if (props.vuejsComponents.indexOf("graphqlClient") >= 0) { _%>
 import {
     apolloProvider,
-} from 'src/core/graphql/index';
+} from './core/graphql/index';
 Object.assign(coreDependencies, {
     apolloProvider,
 });
@@ -62,11 +62,11 @@ if ('serviceWorker' in navigator &&
 
 // Error Tracking
 <%_ if (props.errorTracking) { _%>
-import 'src/core/error-tracking/index';
+import './core/error-tracking/index';
 <%_ } _%>
 
 // Import Root Component
-import appComponent from 'components/app/app.vue';
+import appComponent from 'components/app/app';
 
 // Global styles
 import './global.scss';
