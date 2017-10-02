@@ -1,6 +1,7 @@
 # generator-jm-vuejs
 
 [![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] ![Greenkeeper badge][greenkeeper-image] [![Code Climate][codeclimate-image]][codeclimate-url] [![Code Climate][codeclimate-coverage-image]][codeclimate-coverage-url]
+[![Known Vulnerabilities][snyk-image]](snyk-url)
 
 > Generator for generating VueJS applications.
 
@@ -140,7 +141,8 @@ If you consider a lightweight i18n implementation in your applications to be a "
 
 MIT © [JOSHMARTIN GmbH](https://joshmartin.ch)
 
-
+[snyk-image]: https://snyk.io/test/github/jshmrtn/generator-jm-vuejs/badge.svg
+[snyk-url]: https://snyk.io/test/github/jshmrtn/generator-jm-vuejs
 [npm-image]: https://badge.fury.io/js/generator-jm-vuejs.svg
 [npm-url]: https://npmjs.org/package/@jshmrtn/generator-jm-vuejs
 [travis-image]: https://travis-ci.org/jshmrtn/generator-jm-vuejs.svg?branch=master

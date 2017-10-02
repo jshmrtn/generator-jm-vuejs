@@ -19,20 +19,20 @@
     "yeoman-generator"
   ],
   "devDependencies": {
-    "eslint": "^4.1.0",
+    "eslint": "^4.8.0",
     "eslint-config-xo-space": "^0.16.0",
-    "jest": "^21.0.2",
-    "jest-cli": "^21.0.2",
-    "nsp": "^2.6.3",
+    "jest": "^21.2.1",
+    "jest-cli": "^21.2.1",
+    "nsp": "^2.8.1",
     "package-json-validator": "^0.6.2",
     "semver-regex": "^1.0.0",
-    "yeoman-assert": "^3.0.0",
+    "yeoman-assert": "^3.1.0",
     "yeoman-test": "^1.6.0"
   },
   "dependencies": {
     "chalk": "^2.1.0",
     "lodash": "^4.17.4",
-    "yeoman-generator": "^2.0.0",
+    "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.0"
   },
   "jest": {
