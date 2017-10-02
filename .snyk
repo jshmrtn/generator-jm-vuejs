@@ -5,5 +5,5 @@ ignore:
   'npm:shelljs:20140723':
     - yeoman-generator > shelljs:
         reason: None given
-        expires: '2017-11-01T21:23:09.958Z'
+        expires: '2017-11-01T21:55:35.451Z'
 patch: {}

@@ -50,9 +50,9 @@
     ]
   },
   "scripts": {
-    "prepare": "npm run snyk-protect; nsp check",
+    "prepare": "npm run snyk-protect",
     "pretest": "eslint . --fix",
-    "test": "jest",
+    "test": "snyk test; jest",
     "snyk-protect": "snyk protect"
   },
   "eslintConfig": {
