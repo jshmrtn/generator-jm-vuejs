@@ -1,7 +1,6 @@
 # generator-jm-vuejs
 
-[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] ![Greenkeeper badge][greenkeeper-image] [![Code Climate][codeclimate-image]][codeclimate-url] [![Code Climate][codeclimate-coverage-image]][codeclimate-coverage-url]
-[![Known Vulnerabilities][snyk-image]][snyk-url]
+[![NPM version][npm-image]][npm-url] [![Build Status][travis-image]][travis-url] [![Dependency Status][daviddm-image]][daviddm-url] ![Greenkeeper badge][greenkeeper-image] [![Code Climate][codeclimate-image]][codeclimate-url] [![Code Climate][codeclimate-coverage-image]][codeclimate-coverage-url] [![Known Vulnerabilities][snyk-image]][snyk-url]
 
 > Generator for generating VueJS applications.
 
