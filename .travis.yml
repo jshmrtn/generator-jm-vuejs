@@ -19,3 +19,5 @@ before_script:
 after_script:
   - greenkeeper-lockfile-upload
   - if [ "$TRAVIS_PULL_REQUEST" == "false" ]; then ./cc-test-reporter after-build --exit-code $TRAVIS_TEST_RESULT; fi
+after_success:
+  - snyk monitor
