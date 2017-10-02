@@ -32,6 +32,7 @@
   "dependencies": {
     "chalk": "^2.1.0",
     "lodash": "^4.17.4",
+    "snyk": "^1.42.2",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.0"
   },
@@ -49,9 +50,10 @@
     ]
   },
   "scripts": {
-    "prepare": "nsp check",
+    "prepare": "npm run snyk-protect; nsp check",
     "pretest": "eslint . --fix",
-    "test": "jest"
+    "test": "jest",
+    "snyk-protect": "snyk protect"
   },
   "eslintConfig": {
     "extends": "xo-space",
@@ -61,5 +63,6 @@
     }
   },
   "repository": "jshmrtn/generator-jm-vuejs",
-  "license": "MIT"
+  "license": "MIT",
+  "snyk": true
 }
