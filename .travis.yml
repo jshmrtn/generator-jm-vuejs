@@ -1,6 +1,6 @@
 env:
   global:
-    - CC_TEST_REPORTER_ID=9e8acbffa4ae8942e129af836f074772f8ba7ac19afea22176ab827a3e590c08
+    - CC_TEST_REPORTER_ID=6ec1ca2ab242fea9eec4f3f09228f0da12b70ad98d19eefeef1535979e865a6b
 cache:
   directories:
     - "node_modules"
