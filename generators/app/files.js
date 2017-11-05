@@ -8,7 +8,7 @@ module.exports.simpleFiles = {
     '_.gitignore': '.gitignore',
     '_.htmlhintrc': '.htmlhintrc',
     '_.modernizrrc.json': '.modernizrrc.json',
-    '_.postcssrc.js': '.postcssrc.js',
+    '_postcss.config.js': 'postcss.config.js',
     '_jsconfig.json': 'jsconfig.json',
     'static/_.gitkeep': 'static/.gitkeep',
     'src/assets/_.gitkeep': 'src/assets/.gitkeep',

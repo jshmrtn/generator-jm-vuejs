@@ -43,7 +43,7 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
             '.gitignore',
             '.htmlhintrc',
             '.modernizrrc.json',
-            '.postcssrc.js',
+            'postcss.config.js',
             'jsconfig.json',
             'README.md',
             'src/assets/.gitkeep',
