@@ -19,11 +19,9 @@ module.exports = [
         message: 'Which version of Node would you like to use?',
         choices: [
             '8',
-            '7',
             '6',
-            '5',
         ],
-        default: 1,
+        default: 0,
         store: true,
     },
     {
