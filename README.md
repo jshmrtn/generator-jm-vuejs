@@ -149,7 +149,7 @@ MIT © [JOSHMARTIN GmbH](https://joshmartin.ch)
 [daviddm-image]: https://david-dm.org/jshmrtn/generator-jm-vuejs.svg?theme=shields.io
 [daviddm-url]: https://david-dm.org/jshmrtn/generator-jm-vuejs
 [greenkeeper-image]: https://badges.greenkeeper.io/jshmrtn/generator-jm-vuejs.svg
-[codeclimate-image]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs/badges/gpa.svg
-[codeclimate-url]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs
-[codeclimate-coverage-image]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs/badges/coverage.svg
-[codeclimate-coverage-url]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs/coverage
+[codeclimate-image]: https://api.codeclimate.com/v1/badges/98242e3a7ef1dffa476a/maintainability
+[codeclimate-url]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs/maintainability
+[codeclimate-coverage-image]: https://api.codeclimate.com/v1/badges/98242e3a7ef1dffa476a/test_coverage
+[codeclimate-coverage-url]: https://codeclimate.com/github/jshmrtn/generator-jm-vuejs/test_coverage
