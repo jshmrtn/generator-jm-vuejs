@@ -1,0 +1,51 @@
+{
+  "[javascript]": {
+    "editor.tabSize": 2,
+    "editor.insertSpaces": true
+  },
+  "[vue]": {
+      "editor.tabSize": 2,
+      "editor.insertSpaces": true
+  },
+  "eslint.options": {
+      "extensions": [".html", ".js", ".vue"]
+  },
+  "eslint.validate": [
+      {
+          "language": "html",
+          "autoFix": true
+      },
+      {
+          "language": "vue",
+          "autoFix": true
+      },
+      {
+        "language": "vue-html",
+        "autoFix": true
+    },
+      {
+          "language": "javascript",
+          "autoFix": true
+      }
+  ],
+  "files.associations": {
+      "*.vue": "vue"
+  },
+  "tslint.autoFixOnSave": true,
+  "vetur.validation.template": false,
+  "vetur.format.styleInitialIndent": true,
+  "vetur.format.scriptInitialIndent": true,
+  "prettier.eslintIntegration": true,
+  "path-intellisense.mappings": {
+    "/": "${workspaceRoot}",
+    "Src": "${workspaceRoot}/src",
+    "Assets": "${workspaceRoot}/src/assets",
+    "Components": "${workspaceRoot}/src/components",
+    "Helpers": "${workspaceRoot}/src/helpers",
+    "Mixins": "${workspaceRoot}/src/mixins",
+    "Plugins": "${workspaceRoot}/src/plugins",
+    "Styles": "${workspaceRoot}/src/styles",
+    "Core": "${workspaceRoot}/src/core",
+    "Services": "${workspaceRoot}/src/services"
+  }
+}

@@ -1,0 +1,74 @@
+{
+  "env": {
+    "production": {
+      "presets": [
+        ["env", {
+          "modules": false,
+          "targets": {
+            "browsers": [
+              "> 1%",
+              "last 2 versions",
+              "not ie <= 10"
+            ]
+          }
+        }],
+        "stage-2"
+      ],
+      "plugins": [
+        ["transform-object-rest-spread"],
+        ["syntax-dynamic-import"]
+      ]
+    },
+    "development": {
+      "presets": [
+        ["env", {
+          "modules": false,
+          "targets": {
+            "browsers": [
+              "> 1%",
+              "last 2 versions",
+              "not ie <= 10"
+            ]
+          }
+        }],
+        "stage-2"
+      ],
+      "plugins": [
+        ["transform-object-rest-spread"],
+        ["syntax-dynamic-import"]
+      ]
+    },
+    "test": {
+      "presets": [
+        ["env", {
+          "modules": false,
+          "targets": {
+            "browsers": [
+              "> 1%",
+              "last 2 versions",
+              "not ie <= 10"
+            ]
+          }
+        }],
+        "stage-2"
+      ],
+      "plugins": [
+        ["transform-object-rest-spread"],
+        ["syntax-dynamic-import"]
+      ]
+    },
+    "jest": {
+      "presets": [
+        ["env", {
+          "targets": {
+            "node": <%= props.nodeVersion %>
+          }
+        }]
+      ],
+      "plugins": [
+        ["syntax-dynamic-import"],
+        ["dynamic-import-node"]
+      ]
+    }
+  }
+}

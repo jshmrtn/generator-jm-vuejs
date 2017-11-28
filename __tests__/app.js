@@ -22,9 +22,8 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
             .withPrompts({
                 appName: 'generator-jm-vuejs-app',
                 appDescription: 'generator-jm-vuejs-app test description',
-                nodeVersion: 7,
-                bundlerType: 'webpack',
-                ciType: 'circle',
+                nodeVersion: 8,
+                ide: 'vscode',
                 serviceworker: true,
                 browserconfig: true,
                 manifest: true,
@@ -52,7 +51,7 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
             'src/plugins/.gitkeep',
             'src/styles/fonts.scss',
             'src/styles/variables.scss',
-            'src/global.scss',
+            'src/styles/reset.scss',
         ]);
     });
 
@@ -189,114 +188,74 @@ describe('generator-jm-vuejs:app | Manifest', () => {
 
 });
 
-describe('generator-jm-vuejs:app | Bundler', () => {
+describe('generator-jm-vuejs:app | Webpack', () => {
 
-    describe('Webpack', () => {
-
-        beforeEach(() => {
-            return helpers.run(path.join(__dirname, '../generators/app'))
-                .withOptions({ skipInstall: true })
-                .withPrompts({
-                    bundlerType: 'webpack',
-                });
-        });
-
-        it('creates all bundlerFiles.webpack files', () => {
-            assert.file([
-                'config/dev.env.js',
-                'config/index.js',
-                'config/prod.env.js',
-                'config/test.env.js',
-                'build/build.js',
-                'build/check-versions.js',
-                'build/dev-client.js',
-                'build/dev-server.js',
-                'build/utils.js',
-                'build/vue-loader.conf.js',
-                'build/webpack.base.conf.js',
-                'build/webpack.dev.conf.js',
-                'build/webpack.prod.conf.js',
-                'build/webpack.test.conf.js',
-            ]);
-        });
-
+    beforeEach(() => {
+        return helpers.run(path.join(__dirname, '../generators/app'))
+            .withOptions({ skipInstall: true });
     });
 
-    describe('None', () => {
-
-        beforeEach(() => {
-            return helpers.run(path.join(__dirname, '../generators/app'))
-                .withOptions({ skipInstall: true })
-                .withPrompts({
-                    bundlerType: 'none',
-                });
-        });
-
-        it('creates no bundlerFiles.* files', () => {
-            assert.noFile([
-                'webpack/base.js',
-                'webpack/dev.js',
-                'webpack/prod.js',
-                'webpack/server.conf.js',
-                'webpack/server.js',
-            ]);
-        });
-
+    it('creates all webpackFiles files', () => {
+        assert.file([
+            'config/dev.env.js',
+            'config/index.js',
+            'config/prod.env.js',
+            'config/test.env.js',
+            'build/build.js',
+            'build/check-versions.js',
+            'build/dev-client.js',
+            'build/dev-server.js',
+            'build/test-server.js',
+            'build/utils.js',
+            'build/vue-loader.conf.js',
+            'build/webpack.base.conf.js',
+            'build/webpack.dev.conf.js',
+            'build/webpack.prod.conf.js',
+            'build/webpack.test.conf.js',
+        ]);
     });
 
 });
 
-describe('generator-jm-vuejs:app | CI', () => {
+describe('generator-jm-vuejs:app | Testing', () => {
 
-    describe('Travis CI', () => {
-
-        beforeEach(() => {
-            return helpers.run(path.join(__dirname, '../generators/app'))
-                .withOptions({ skipInstall: true })
-                .withPrompts({
-                    ciType: 'travis',
-                });
-        });
-
-        it('creates all ciFiles.travis files', () => {
-            assert.file([
-                '.travis.yml',
-            ]);
-        });
-
+    beforeEach(() => {
+        return helpers.run(path.join(__dirname, '../generators/app'))
+            .withOptions({ skipInstall: true });
     });
 
-    describe('Circle CI', () => {
-
-        beforeEach(() => {
-            return helpers.run(path.join(__dirname, '../generators/app'))
-                .withOptions({ skipInstall: true })
-                .withPrompts({
-                    ciType: 'circle',
-                });
-        });
-
-        it('creates all ciFiles.circle files', () => {
-            assert.file([
-                'circle.yml',
-            ]);
-        });
-
+    it('creates all testingFiles files', () => {
+        assert.file([
+            'jest.default.config.json',
+            'jest.visual.config.json',
+            'test/browser.visual.js',
+            'test/setup.default.js',
+            'test/setup.visual.js',
+            'test/test-app/main.js',
+            'test/test-app/index.html',
+            'test/test-app/components/app.vue',
+        ]);
     });
 
-    describe('Gitlab CI', () => {
+});
+
+describe('generator-jm-vuejs:app | IDE', () => {
+
+    describe('VS Code', () => {
 
         beforeEach(() => {
             return helpers.run(path.join(__dirname, '../generators/app'))
                 .withOptions({ skipInstall: true })
                 .withPrompts({
-                    ciType: 'gitlab',
+                    ide: 'vscode',
                 });
         });
 
-        it('creates all ciFiles.circle files', () => {
+        it('creates all ideFiles.vscode files', () => {
             assert.file([
-                '.gitlab-ci.yml',
+                '.vscode/launch.json',
+                '.vscode/settings.json',
+                'jsconfig.json',
             ]);
         });
 
@@ -308,20 +267,19 @@ describe('generator-jm-vuejs:app | CI', () => {
             return helpers.run(path.join(__dirname, '../generators/app'))
                 .withOptions({ skipInstall: true })
                 .withPrompts({
-                    ciType: 'none',
+                    ide: 'none',
                 });
         });
 
-        it('creates no ciFiles.* files', () => {
+        it('creates no *Files files', () => {
             assert.noFile([
-                '.travis.yml',
-                'circle.yml',
-                '.gitlab-ci.yml',
+                '.vscode/launch.json',
+                '.vscode/settings.json',
+                'jsconfig.json',
             ]);
         });
 
     });
-
 
 });
 
@@ -340,7 +298,6 @@ describe('generator-jm-vuejs:app | Routing', () => {
             'src/core/routing/index.js',
             'src/core/routing/routes.js',
             'src/components/index',
-            'src/components/not-found',
         ]);
     });
 
@@ -496,9 +453,8 @@ describe('generator-jm-vuejs:app | NPM Validity ', () => {
         return helpers.run(path.join(__dirname, '../generators/app')).withPrompts({
             appName: 'generator-jm-vuejs-app',
             appDescription: 'generator-jm-vuejs-app test description',
-            nodeVersion: 7,
-            bundlerType: 'webpack',
-            ciType: 'circle',
+            nodeVersion: 8,
+            ide: 'vscode',
             serviceworker: true,
             browserconfig: true,
             manifest: true,
@@ -517,6 +473,7 @@ describe('generator-jm-vuejs:app | NPM Validity ', () => {
 
         const
             packageJson = readFile('package.json');
+
         test = packageJsonValidator.validate(packageJson, 'npm', {
             warnings: true,
             recommendations: true,

@@ -1,0 +1,48 @@
+{
+  "include": [
+    "./src/**/*"
+  ],
+  "exclude": [
+    "./node_modules",
+    "./dist"
+  ],
+  "compilerOptions": {
+    "module": "es2015",
+    "target": "es5",
+    "sourceMap": true,
+    "lib": ["es2015", "es2017", "dom"],
+    "strict": true,
+    "allowSyntheticDefaultImports": true,
+    "outDir": "dist",
+    "baseUrl": ".",
+    "paths": {
+      "Src/*": [
+        "./src/*"
+      ],
+      "Assets/*": [
+        "./src/assets/*"
+      ],
+      "Components/*": [
+        "./src/components/*"
+      ],
+      "Helpers/*": [
+        "./src/helpers/*"
+      ],
+      "Mixins/*": [
+        "./src/mixins/*"
+      ],
+      "Plugins/*": [
+        "./src/plugins/*"
+      ],
+      "Styles/*": [
+        "./src/styles/*"
+      ],
+      "Core/*": [
+        "./src/core/*"
+      ],
+      "Services/*": [
+        "./src/services/*"
+      ]
+    }
+  }
+}

@@ -1,0 +1,20 @@
+{
+  "verbose": false,
+  "setupTestFrameworkScriptFile": "<rootDir>/test/setup.visual.js",
+  "coveragePathIgnorePatterns": ["<rootDir>/test/**.js"],
+  "testMatch": [
+    "<rootDir>/src/**/*.visual.js"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "json"
+  ],
+  "transform": {},
+  "moduleDirectories": [
+    "node_modules"
+  ],
+  "transformIgnorePatterns": [
+    "^.+\\.js$"
+  ],
+  "mapCoverage": true
+}

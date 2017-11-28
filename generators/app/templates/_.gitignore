@@ -1,8 +1,0 @@
-node_modules
-dist
-*.log
-.idea
-coverage
-.vscode
-jsconfig.json
-src/client.config.json
