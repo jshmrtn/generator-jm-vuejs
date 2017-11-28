@@ -43,6 +43,7 @@ describe('generator-jm-vuejs:app | Basic Usage', () => {
             '.htmlhintrc',
             '.modernizrrc.json',
             'postcss.config.js',
+            '.prettierrc',
             'jsconfig.json',
             'README.md',
             'src/assets/.gitkeep',

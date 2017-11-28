@@ -9,6 +9,7 @@ module.exports.simpleFiles = {
     '.htmlhintrc': '.htmlhintrc',
     '.modernizrrc.json': '.modernizrrc.json',
     'postcss.config.js': 'postcss.config.js',
+    '.prettierrc': '.prettierrc',
     'static/.gitkeep': 'static/.gitkeep',
     'src/assets/.gitkeep': 'src/assets/.gitkeep',
     'src/helpers/.gitkeep': 'src/helpers/.gitkeep',
