@@ -16,7 +16,7 @@ npm install -g generator-jm-vuejs
 Then generate your new project:
 
 ```bash
-yo jm-vuejs
+yo @jshmrtn/jm-vuejs
 ```
 
 ## Getting To Know Yeoman
@@ -29,6 +29,10 @@ yo jm-vuejs
 ## Vue Application
 
 This generator will help you bootstrap a vue application pretty quickly. You will have a few choices for the core boilerplate. These choices will let you decide on which additional features (besides the ones in the Vue core) you would like to use. In the following section you'll get a short summary of the functionality and the libs we use to enhance our applications.
+
+```bash
+yo @jshmrtn/jm-vuejs:app
+```
 
 ### Core Features
 
@@ -135,6 +139,14 @@ If you consider a lightweight i18n implementation in your applications to be a "
 * [vue-i18n Docs](https://kazupon.github.io/vue-i18n/)
 
 ---
+
+## Vue Component
+
+This generator will help you bootstrap a vue component pretty quickly.
+
+```bash
+yo @jshmrtn/jm-vuejs:component
+```
 
 ## License
 
