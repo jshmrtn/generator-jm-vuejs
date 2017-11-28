@@ -4,9 +4,9 @@
 'use strict';
 
 const
-  path = require('path'),
-  config = require('../config'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin');
+      path = require('path'),
+      config = require('../config'),
+      ExtractTextPlugin = require('extract-text-webpack-plugin');
 
 exports.cwd = (file) => {
   return path.join(process.cwd(), file || '');

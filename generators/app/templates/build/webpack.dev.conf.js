@@ -4,16 +4,16 @@
 'use strict';
 
 const
-  path = require('path'),
-  webpack = require('webpack'),
-  config = require('../config'),
-  merge = require('webpack-merge'),
-  baseWebpackConfig = require('./webpack.base.conf'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'),
-  rootPath = path.join(__dirname, '../'),
-  srcPath = path.join(rootPath, 'src');
+      path = require('path'),
+      webpack = require('webpack'),
+      config = require('../config'),
+      merge = require('webpack-merge'),
+      baseWebpackConfig = require('./webpack.base.conf'),
+      HtmlWebpackPlugin = require('html-webpack-plugin'),
+      ExtractTextPlugin = require('extract-text-webpack-plugin'),
+      FriendlyErrorsPlugin = require('friendly-errors-webpack-plugin'),
+      rootPath = path.join(__dirname, '../'),
+      srcPath = path.join(rootPath, 'src');
 
 // add hot-reload related code to entry chunks
 Object.keys(baseWebpackConfig.entry).forEach(function (name) {

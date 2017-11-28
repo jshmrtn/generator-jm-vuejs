@@ -14,11 +14,11 @@ if (!process.env.NODE_ENV || process.env.NODE_ENV === 'visual') {
 console.log(`> NODE_ENV is: ${process.env.NODE_ENV}`);
 
 const
-  opn = require('opn'),
-  path = require('path'),
-  express = require('express'),
-  webpack = require('webpack'),
-  webpackConfig = require('./webpack.test.conf');
+      opn = require('opn'),
+      path = require('path'),
+      express = require('express'),
+      webpack = require('webpack'),
+      webpackConfig = require('./webpack.test.conf');
 
 // default port where test server listens for incoming traffic
 const port = process.env.PORT || config.test.port;

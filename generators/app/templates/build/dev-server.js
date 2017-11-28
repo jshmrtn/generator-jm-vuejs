@@ -14,12 +14,12 @@ if (!process.env.NODE_ENV) {
 console.log(`> NODE_ENV is: ${process.env.NODE_ENV}`);
 
 const
-  opn = require('opn'),
-  path = require('path'),
-  express = require('express'),
-  webpack = require('webpack'),
-  proxyMiddleware = require('http-proxy-middleware'),
-  webpackConfig = require('./webpack.dev.conf');
+      opn = require('opn'),
+      path = require('path'),
+      express = require('express'),
+      webpack = require('webpack'),
+      proxyMiddleware = require('http-proxy-middleware'),
+      webpackConfig = require('./webpack.dev.conf');
 
 // default port where dev server listens for incoming traffic
 const port = process.env.PORT || config.dev.port;

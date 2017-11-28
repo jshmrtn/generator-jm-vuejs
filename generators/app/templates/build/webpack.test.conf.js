@@ -4,14 +4,14 @@
 'use strict';
 
 const
-  path = require('path'),
-  webpack = require('webpack'),
-  config = require('../config'),
-  merge = require('webpack-merge'),
-  baseWebpackConfig = require('./webpack.base.conf'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  rootPath = path.join(__dirname, '../');
+      path = require('path'),
+      webpack = require('webpack'),
+      config = require('../config'),
+      merge = require('webpack-merge'),
+      baseWebpackConfig = require('./webpack.base.conf'),
+      HtmlWebpackPlugin = require('html-webpack-plugin'),
+      ExtractTextPlugin = require('extract-text-webpack-plugin'),
+      rootPath = path.join(__dirname, '../');
 
 module.exports = merge(baseWebpackConfig, {
   devtool: '#cheap-module-eval-source-map',

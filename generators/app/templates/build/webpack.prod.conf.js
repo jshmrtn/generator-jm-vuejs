@@ -4,18 +4,18 @@
 'use strict';
 
 const
-  path = require('path'),
-  rootPath = path.join(__dirname, '../'),
-  srcPath = path.join(rootPath, 'src'),
-  utils = require('./utils'),
-  webpack = require('webpack'),
-  config = require('../config'),
-  merge = require('webpack-merge'),
-  baseWebpackConfig = require('./webpack.base.conf'),
-  CopyWebpackPlugin = require('copy-webpack-plugin'),
-  HtmlWebpackPlugin = require('html-webpack-plugin'),
-  ExtractTextPlugin = require('extract-text-webpack-plugin'),
-  OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
+      path = require('path'),
+      rootPath = path.join(__dirname, '../'),
+      srcPath = path.join(rootPath, 'src'),
+      utils = require('./utils'),
+      webpack = require('webpack'),
+      config = require('../config'),
+      merge = require('webpack-merge'),
+      baseWebpackConfig = require('./webpack.base.conf'),
+      CopyWebpackPlugin = require('copy-webpack-plugin'),
+      HtmlWebpackPlugin = require('html-webpack-plugin'),
+      ExtractTextPlugin = require('extract-text-webpack-plugin'),
+      OptimizeCSSPlugin = require('optimize-css-assets-webpack-plugin');
 
 const env = config.build.env;
 

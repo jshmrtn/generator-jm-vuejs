@@ -1,10 +1,8 @@
 <script>
-  import Vue from 'vue';
-
-  // @vue/component
-  export default Vue.extend({
-    name: 'app',
-  });
+// @vue/component
+export default {
+  name: 'app',
+};
 </script>
 
 <style lang="scss">
@@ -13,16 +11,16 @@
   @import "~Styles/variables";
 
   html {
-      -webkit-font-smoothing: antialiased;
-      -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
   }
 
   body {
-      height: 100%;
+    height: 100%;
   }
 
   [v-cloak] {
-      display: none;
+    display: none;
   }
 </style>
 
