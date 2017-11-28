@@ -1,10 +1,10 @@
 export const
-  CLEAR_ALL_DATA = ({
-    commit,
-  }) => {
+      CLEAR_ALL_DATA = ({
+        commit,
+      }) => {
 
-    commit('RESET_LOCALSTORAGE');
+        commit('RESET_LOCALSTORAGE');
 
-    return Promise.resolve();
+        return Promise.resolve();
 
-  };
+      };

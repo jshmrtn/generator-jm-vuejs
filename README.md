@@ -4,6 +4,10 @@
 
 > Generator for generating VueJS applications.
 
+## General
+
+It is important to note that this generator is heavily opinionated. It is intended to be used as a starting point for bigger Vue SPA projects.
+
 ## Installation
 
 First, install [Yeoman](http://yeoman.io) and generator-jm-vuejs using [npm](https://www.npmjs.com/) (we assume you have pre-installed [node.js](https://nodejs.org/)).
@@ -19,12 +23,9 @@ Then generate your new project:
 yo @jshmrtn/jm-vuejs
 ```
 
-## Getting To Know Yeoman
+## Yeoman
 
-* Yeoman has a heart of gold.
-* Yeoman is a person with feelings and opinions, but is very easy to work with.
-* Yeoman can be too opinionated at times but is easily convinced not to be.
-* Feel free to [learn more about Yeoman](http://yeoman.io/).
+Feel free to [learn more about Yeoman](http://yeoman.io/).
 
 ## Vue Application
 
@@ -38,107 +39,113 @@ yo @jshmrtn/jm-vuejs:app
 
 The following core features are built into the generators root boilerplate.
 
-#### Dependency Injection
+<details>
+  <summary>Dependency Injection</summary>
 
-This can be used to ease working with dependencies the right way. Also, this makes testing components much easier.
+  This can be used to ease working with dependencies the right way. Also, this makes testing components much easier.
 
-##### Libs
+  ##### Libs
 
-* [vue-inject](https://www.npmjs.com/package/vue-inject)
+  * [vue-inject](https://www.npmjs.com/package/vue-inject)
 
-##### Docs / Articles
+  ##### Docs / Articles
 
-* [vue-inject Docs](https://github.com/jpex-js/vue-inject/blob/master/README.md)
+  * [vue-inject Docs](https://github.com/jpex-js/vue-inject/blob/master/README.md)
+</details>
 
----
+<details>
+  <summary>Error Tracking</summary>
 
-#### Error Tracking
+  Error tracking with raven-js will allow you to catch most uncatched errors in a production grade frontend application.
 
-Error tracking with raven-js will allow you to catch most uncatched errors in a production grade frontend application.
+  ##### Libs
 
-##### Libs
+  * [raven-js](https://www.npmjs.com/package/raven-js)
+  * [raven-js/plugins/vue](https://github.com/getsentry/raven-js/blob/master/plugins/vue.js)
 
-* [raven-js](https://www.npmjs.com/package/raven-js)
-* [raven-js/plugins/vue](https://github.com/getsentry/raven-js/blob/master/plugins/vue.js)
+  ##### Docs / Articles
 
-##### Docs / Articles
+  * [raven-js with Vue](https://github.com/getsentry/raven-js/blob/master/docs/integrations/vue.rst)
 
-* [raven-js with Vue](https://github.com/getsentry/raven-js/blob/master/docs/integrations/vue.rst)
+</details>
 
----
+<details>
+  <summary>GraphQL Client</summary>
 
-#### GraphQL Client
+  If you intend to connect your Vue application to a GraphQL backend the apollo client and vue-apollo do a great job.
 
-If you intend to connect your Vue application to a GraphQL backend the apollo client and vue-apollo do a great job.
+  ##### Libs
 
-##### Libs
+  * [apollo-client](https://www.npmjs.com/package/apollo-client)
+  * [vue-apollo](https://www.npmjs.com/package/vue-apollo)
 
-* [apollo-client](https://www.npmjs.com/package/apollo-client)
-* [vue-apollo](https://www.npmjs.com/package/vue-apollo)
+  ##### Docs / Articles
 
-##### Docs / Articles
+  * [vue-apollo Docs](https://github.com/Akryum/vue-apollo)
+  * [vue-apollo example app](https://github.com/Akryum/vue-apollo-example)
+  * ["Use Apollo in your VueJS app" - 27.09.2016](https://dev-blog.apollodata.com/use-apollo-in-your-vuejs-app-89812429d8b2)
 
-* [vue-apollo Docs](https://github.com/Akryum/vue-apollo)
-* [vue-apollo example app](https://github.com/Akryum/vue-apollo-example)
-* ["Use Apollo in your VueJS app" - 27.09.2016](https://dev-blog.apollodata.com/use-apollo-in-your-vuejs-app-89812429d8b2)
+</details>
 
----
+<details>
+  <summary>HTTP Client</summary>
 
-#### HTTP Client
+  For communicating with regular (and not so regular) REST APIs vue-resource is a great tool.
 
-For communicating with regular (and not so regular) REST APIs vue-resource is a great tool.
+  ##### Libs
 
-##### Libs
+  * [vue-resource](https://www.npmjs.com/package/vue-resource)
 
-* [vue-resource](https://www.npmjs.com/package/vue-resource)
+  ##### Docs / Articles
 
-##### Docs / Articles
+  * [vue-resource Docs](https://github.com/pagekit/vue-resource)
 
-* [vue-resource Docs](https://github.com/pagekit/vue-resource)
+</details>
 
----
+<details>
+  <summary>Routing</summary>
 
-#### Routing
+  All routing needs can be fulfilled with vue-router. This is especially true because it is developed by the core team in "feature parity" together with Vue itself.
 
-All routing needs can be fulfilled with vue-router. This is especially true because it is developed by the core team in "feature parity" together with Vue itself.
+  ##### Libs
 
-##### Libs
+  * [vue-router](https://www.npmjs.com/package/vue-router)
 
-* [vue-router](https://www.npmjs.com/package/vue-router)
+  ##### Docs / Articles
 
-##### Docs / Articles
+  * [vue-router Docs](https://router.vuejs.org/en/)
 
-* [vue-router Docs](https://router.vuejs.org/en/)
+</details>
 
----
+<details>
+  <summary>State</summary>
 
-#### State
+  Handling the state will quickly become a vital part of your Vue application if you intend to scale it. Vuex is (like the vue-router) developed by the core team.
 
-Handling the state will quickly become a vital part of your Vue application if you intend to scale it. Vuex is (like the vue-router) developed by the core team.
+  ##### Libs
 
-##### Libs
+  * [vuex](https://www.npmjs.com/package/vuex)
 
-* [vuex](https://www.npmjs.com/package/vuex)
+  ##### Docs / Articles
 
-##### Docs / Articles
+  * [vuex Docs](https://vuex.vuejs.org/en/)
 
-* [vuex Docs](https://vuex.vuejs.org/en/)
+</details>
 
----
+<details>
+  <summary>Translations / i18n</summary>
 
-#### Translations / i18n
+  If you consider a lightweight i18n implementation in your applications to be a "basic feature", vue-i18n can be used without hassle.
 
-If you consider a lightweight i18n implementation in your applications to be a "basic feature", vue-i18n can be used without hassle.
+  ##### Libs
 
-##### Libs
+  * [vue-i18n](https://www.npmjs.com/package/vue-i18n)
 
-* [vue-i18n](https://www.npmjs.com/package/vue-i18n)
+  ##### Docs / Articles
 
-##### Docs / Articles
+  * [vue-i18n Docs](https://kazupon.github.io/vue-i18n/)
 
-* [vue-i18n Docs](https://kazupon.github.io/vue-i18n/)
-
----
+</details>
 
 ## Vue Component
 

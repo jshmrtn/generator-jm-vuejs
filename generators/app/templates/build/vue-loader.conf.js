@@ -3,10 +3,9 @@
 /* eslint-disable no-console */
 'use strict';
 
-const
-  utils = require('./utils'),
-  config = require('../config'),
-  isProduction = process.env.NODE_ENV === 'production';
+const utils = require('./utils'),
+      config = require('../config'),
+      isProduction = process.env.NODE_ENV === 'production';
 
 module.exports = {
   loaders: utils.cssLoaders({

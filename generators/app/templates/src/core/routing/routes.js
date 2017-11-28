@@ -1,5 +1,5 @@
 const
-  indexComponent = () =>
+      indexComponent = () =>
   import ('Components/index/index');
 
 export const routes = [{

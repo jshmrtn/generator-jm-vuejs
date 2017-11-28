@@ -14,12 +14,12 @@ if (!process.env.NODE_ENV) {
 console.log(`> NODE_ENV is: ${process.env.NODE_ENV}`);
 
 const
-  ora = require('ora'),
-  rm = require('rimraf'),
-  path = require('path'),
-  chalk = require('chalk'),
-  webpack = require('webpack'),
-  spinner = ora(`building for ${process.env.NODE_ENV}...`);
+      ora = require('ora'),
+      rm = require('rimraf'),
+      path = require('path'),
+      chalk = require('chalk'),
+      webpack = require('webpack'),
+      spinner = ora(`building for ${process.env.NODE_ENV}...`);
 
 let webpackConfig;
 
@@ -65,7 +65,7 @@ rm(path.join(config.build.assetsRoot, config.build.assetsSubDirectory), error =>
     console.log(
       chalk.yellow(
         '  Tip: built files are meant to be served over an HTTP server.\n' +
-          "  Opening index.html over file:// won't work.\n"
+          '  Opening index.html over file:// will not work.\n'
       )
     );
   });

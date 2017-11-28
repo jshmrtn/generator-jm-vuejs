@@ -23,7 +23,7 @@
     "yeoman-generator"
   ],
   "devDependencies": {
-    "eslint": "^4.11.0",
+    "eslint": "^4.12.0",
     "eslint-config-xo-space": "^0.17.0",
     "jest": "^21.2.1",
     "jest-cli": "^21.2.1",
@@ -34,9 +34,14 @@
     "yeoman-test": "^1.7.0"
   },
   "dependencies": {
+    "babel-eslint": "^8.0.2",
     "chalk": "^2.3.0",
+    "eslint-plugin-import": "^2.8.0",
+    "eslint-plugin-jest": "^21.3.2",
+    "eslint-plugin-promise": "^3.6.0",
+    "eslint-plugin-vue": "^4.0.0-beta.0",
     "lodash": "^4.17.4",
-    "snyk": "^1.49.5",
+    "snyk": "^1.52.0",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },

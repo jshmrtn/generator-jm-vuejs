@@ -3,17 +3,16 @@
 /* eslint-disable no-console */
 'use strict';
 
-const
-  path = require('path'),
-  utils = require('./utils'),
-  config = require('../config'),
-  vueLoaderConfig = require('./vue-loader.conf'),
-  <%_ if (props.serviceworker) { _%>
-  ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin'),
-  <%_ } _%>
-  rootPath = path.resolve(__dirname, '../'),
-  distPath = path.join(rootPath, 'dist'),
-  srcPath = path.join(rootPath, 'src');
+const path = require('path'),
+      utils = require('./utils'),
+      config = require('../config'),
+      vueLoaderConfig = require('./vue-loader.conf'),
+      <%_ if (props.serviceworker) { _%>
+      ServiceWorkerWebpackPlugin = require('serviceworker-webpack-plugin'),
+      <%_ } _%>
+      rootPath = path.resolve(__dirname, '../'),
+      distPath = path.join(rootPath, 'dist'),
+      srcPath = path.join(rootPath, 'src');
 
 module.exports = {
   context: rootPath,
