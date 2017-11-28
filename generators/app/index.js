@@ -7,8 +7,9 @@ const
     prompts = require('./prompts'),
     simpleFiles = require('./files').simpleFiles,
     tplFiles = require('./files').tplFiles,
-    bundlerFiles = require('./files').bundlerFiles,
-    ciFiles = require('./files').ciFiles,
+    webpackFiles = require('./files').webpackFiles,
+    testingFiles = require('./files').testingFiles,
+    ideFiles = require('./files').ideFiles,
     serviceworkerFiles = require('./files').serviceworkerFiles,
     browserconfigFiles = require('./files').browserconfigFiles,
     manifestFiles = require('./files').manifestFiles,
@@ -34,39 +35,55 @@ module.exports = class extends Generator {
 
     }
 
+    configuring() {
+
+        const config = this.config.getAll();
+
+        if (config.app) {
+            this.log(yosay(
+                'Sorry, but the application was already generated.'
+            ));
+
+            process.exit();
+        }
+
+    }
+
     writing() {
 
         let source, target;
 
-        this._copyTpl('__package.json', 'package.json');
+        this._copyTpl('package.json', 'package.json');
 
         /**
-         * Bundler
+         * Webpack
          */
 
-        if (this.props.bundlerType !== 'none') {
-
-            const
-                selectedBundlerFiles = bundlerFiles[this.props.bundlerType];
-
-            for (source in selectedBundlerFiles) {
-                target = selectedBundlerFiles[source];
-                this._copyTpl(source, target);
-            }
-
+        for (source in webpackFiles) {
+            target = webpackFiles[source];
+            this._copyTpl(source, target);
         }
 
         /**
-         * CI
+         * Testing
          */
 
-        if (this.props.ciType !== 'none') {
+        for (source in testingFiles) {
+            target = testingFiles[source];
+            this._copyTpl(source, target);
+        }
+
+        /**
+         * IDE
+         */
+
+        if (this.props.ide !== 'none') {
 
             const
-                selectedCiFiles = ciFiles[this.props.ciType];
+                selectedIdeFiles = ideFiles[this.props.ide];
 
-            for (source in selectedCiFiles) {
-                target = selectedCiFiles[source];
+            for (source in selectedIdeFiles) {
+                target = selectedIdeFiles[source];
                 this._copyTpl(source, target);
             }
 
@@ -164,7 +181,7 @@ module.exports = class extends Generator {
 
         for (source in simpleFiles) {
             target = simpleFiles[source];
-            this._copy(source, target);
+            this._copyTpl(source, target);
         }
 
         for (source in tplFiles) {
@@ -176,22 +193,33 @@ module.exports = class extends Generator {
 
     install() {
 
-    // make bin executable
-    // setup client config
+        // make bin executable
+        // setup client config
 
         this.installDependencies({
             bower: false,
             npm: false,
             yarn: true,
         });
+
+    }
+
+    end() {
+        this._writeConfig();
+    }
+
+    _writeConfig() {
+
+        this.config.set({
+            'app': {
+                ...this.props,
+            },
+        });
+
     }
 
     _copyTpl (source, dest) {
         this.fs.copyTpl(this.templatePath(source), this.destinationPath(dest), this);
-    }
-
-    _copy (source, dest) {
-        this.fs.copy(this.templatePath(source), this.destinationPath(dest));
     }
 
 };

@@ -1,0 +1,41 @@
+{
+  "verbose": false,
+  "setupTestFrameworkScriptFile": "<rootDir>/test/setup.default.js",
+  "coveragePathIgnorePatterns": ["<rootDir>/test/**.js"],
+  "testMatch": [
+    "<rootDir>/src/**/__tests__/**/*.js?(x)",
+    "<rootDir>/src/**/?(*.)(spec|test|unit|integration).js?(x)"
+  ],
+  "moduleFileExtensions": [
+    "js",
+    "json",
+    "vue"
+  ],
+  "transform": {
+    "^.+\\.js$": "<rootDir>/node_modules/babel-jest",
+    ".*\\.(vue)$": "<rootDir>/node_modules/vue-jest"
+  },
+  "moduleDirectories": [
+    "node_modules"
+  ],
+  "moduleNameMapper": {
+    "^@/(.*)$": "<rootDir>/src/$1",
+    "^Root/(.*)$": "<rootDir>/$1",
+    "^Src/(.*)$": "<rootDir>/src/$1",
+    "^Assets/(.*)$": "<rootDir>/src/assets/$1",
+    "^Components/(.*)$": "<rootDir>/src/components/$1",
+    "^Helpers/(.*)$": "<rootDir>/src/helpers/$1",
+    "^Mixins/(.*)$": "<rootDir>/src/mixins/$1",
+    "^Plugins/(.*)$": "<rootDir>/src/plugins/$1",
+    "^Styles/(.*)$": "<rootDir>/src/styles/$1",
+    "^Core/(.*)$": "<rootDir>/src/core/$1",
+    "^Services/(.*)$": "<rootDir>/src/services/$1"
+  },
+  "snapshotSerializers": [
+    "<rootDir>/node_modules/jest-serializer-vue"
+  ],
+  "transformIgnorePatterns": [
+    "<rootDir>/node_modules/(?!vue-mdc-adapter)/"
+  ],
+  "mapCoverage": true
+}

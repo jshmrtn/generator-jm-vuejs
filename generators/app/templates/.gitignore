@@ -1,0 +1,8 @@
+node_modules
+dist
+*.log
+.idea
+coverage
+src/client.config.json
+__diff_output__
+.wakatime-project

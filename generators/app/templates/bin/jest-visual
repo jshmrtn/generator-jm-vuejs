@@ -1,0 +1,21 @@
+#!/usr/bin/env node
+
+'use strict';
+
+const
+  testServer = require('../build/test-server'),
+  jestCli = require('jest-cli');
+
+testServer.ready
+  .then(() => {
+    return jestCli.run();
+  })
+  .then(() => {
+    testServer.close();
+    process.exit(0);
+  })
+  .catch((error) => {
+    console.error(error);
+    testServer.close();
+    process.exit(1);
+  });

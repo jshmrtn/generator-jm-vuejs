@@ -36,23 +36,10 @@ module.exports = [
     },
     {
         type: 'list',
-        name: 'bundlerType',
-        message: 'Which bundler would you like to use?',
+        name: 'ide',
+        message: 'Which IDE would you like to use?',
         choices: [
-            'webpack',
-            'none',
-        ],
-        default: 0,
-        store: true,
-    },
-    {
-        type: 'list',
-        name: 'ciType',
-        message: 'Which CI would you like to use?',
-        choices: [
-            'travis',
-            'gitlab',
-            'circle',
+            'vscode',
             'none',
         ],
         default: 0,

@@ -1,0 +1,40 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font: initial;
+  margin: 0;
+  padding: 0;
+
+  * {
+    font: inherit;
+    margin: initial;
+    padding: initial;
+    text-align: inherit;
+    text-decoration: none;
+    color: inherit;
+    font: unset;
+    margin: unset;
+    padding: unset;
+    text-align: unset;
+    text-decoration: unset;
+    border: unset;
+    background-color: unset;
+  }
+
+  *,
+  *::before,
+  *::after {
+    -webkit-box-sizing: border-box;
+            box-sizing: border-box;
+  }
+
+  // IE FIXES
+
+  figure {
+    margin: 0;
+  }
+
+}

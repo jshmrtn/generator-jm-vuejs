@@ -6,8 +6,10 @@
         "node": true
     },
     "parserOptions": {
+        "ecmaVersion": 6,
         "ecmaFeatures": {
-            "jsx": false
+            "jsx": false,
+            "experimentalObjectRestSpread": true
         },
         "sourceType": "module"
     },
