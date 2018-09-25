@@ -34,7 +34,7 @@
     "yeoman-test": "^1.7.0"
   },
   "dependencies": {
-    "babel-eslint": "^8.0.2",
+    "babel-eslint": "^10.0.0",
     "chalk": "^2.3.0",
     "eslint-plugin-import": "^2.8.0",
     "eslint-plugin-jest": "^21.3.2",
