@@ -41,7 +41,7 @@
     "eslint-plugin-promise": "^3.6.0",
     "eslint-plugin-vue": "^4.0.0-beta.0",
     "lodash": "^4.17.4",
-    "snyk": "^1.52.0",
+    "snyk": "1.99.0",
     "yeoman-generator": "^2.0.1",
     "yosay": "^2.0.1"
   },
