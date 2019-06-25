@@ -23,7 +23,7 @@
     "yeoman-generator"
   ],
   "devDependencies": {
-    "eslint": "^4.12.0",
+    "eslint": "^6.0.1",
     "eslint-config-xo-space": "^0.17.0",
     "jest": "^21.2.1",
     "jest-cli": "^21.2.1",
