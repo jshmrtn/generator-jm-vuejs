@@ -31,7 +31,7 @@
     "package-json-validator": "^0.6.2",
     "semver-regex": "^1.0.0",
     "yeoman-assert": "^3.1.0",
-    "yeoman-test": "^1.7.0"
+    "yeoman-test": "^2.5.0"
   },
   "dependencies": {
     "babel-eslint": "^8.0.2",
