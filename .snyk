@@ -1,9 +1,39 @@
 # Snyk (https://snyk.io) policy file, patches or ignores known vulnerabilities.
-version: v1.7.1
+version: v1.14.1
 # ignores vulnerabilities until expiry date; change duration by modifying expiry date
 ignore:
   'npm:shelljs:20140723':
     - yeoman-generator > shelljs:
         reason: Not a runtime dependency.
         expires: '2017-12-05T06:54:40.793Z'
-patch: {}
+# patches apply the minimum changes required to fix a vulnerability
+patch:
+  SNYK-JS-LODASH-567746:
+    - lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - yeoman-generator > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - babel-eslint > @babel/traverse > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - eslint-plugin-vue > vue-eslint-parser > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - snyk > inquirer > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - snyk > snyk-resolve-deps > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - yeoman-generator > async > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - yeoman-generator > yeoman-environment > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - babel-eslint > @babel/traverse > @babel/types > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - snyk > snyk-go-plugin > graphlib > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - yeoman-generator > yeoman-environment > grouped-queue > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - yeoman-generator > yeoman-environment > inquirer > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/template > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
+    - babel-eslint > @babel/traverse > @babel/helper-function-name > @babel/template > @babel/types > lodash:
+        patched: '2020-05-04T23:58:15.984Z'
